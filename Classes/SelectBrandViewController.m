@@ -19,9 +19,13 @@
 	return brands;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	self.brands = nil;
+	[brandPicker reloadAllComponents];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
 	[self.view.window addSubview:navigationController.view];
 	self.navigationItem.title = @"Select Brand";
 	brandNameTextField.returnKeyType = UIReturnKeyDone; 
@@ -72,7 +76,7 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-	return [self.brands count];
+	return [self.brands count] + 1;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {

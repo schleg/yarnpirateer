@@ -15,6 +15,7 @@
 	NSMutableArray *brands;
 	IBOutlet UIBarButtonItem *addButton;
 	IBOutlet UIBarButtonItem *editButton;
+	NSIndexPath *_lastClickedIndexPath;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
@@ -23,5 +24,6 @@
 @property (nonatomic, retain) UIBarButtonItem *editButton;
 
 - (IBAction)edit;
+- (IBAction)add;
 
 @end

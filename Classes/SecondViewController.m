@@ -8,6 +8,11 @@
 
 #import "SecondViewController.h"
 
+@interface UIAlertView (extended)
+- (UITextField *)textFieldAtIndex:(int)index;
+- (void)addTextFieldWithValue:(NSString *)value label:(NSString *)label;
+@end
+
 @implementation SecondViewController
 
 @synthesize tableView, brands, addButton, editButton;
@@ -31,6 +36,14 @@
 	}
 }
 
+- (IBAction)add {
+	_lastClickedIndexPath = nil;
+	UIAlertView *promptForName = [[UIAlertView alloc] initWithTitle:@"Add a New Brand" message:@"Please type new brand name below" delegate:self cancelButtonTitle:@"Don't Add" otherButtonTitles:@"Add Brand",nil];
+	[promptForName addTextFieldWithValue:@"" label:@"New Brand Name"];
+	[promptForName show];
+	[promptForName release];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.brands count];
 }
@@ -49,10 +62,8 @@
     return cell;
 }
 
-NSIndexPath *lastClickedIndexPath;
-
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-	lastClickedIndexPath = indexPath;
+	_lastClickedIndexPath = indexPath;
     [tableView beginUpdates];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 		Brand *brand = [[self.brands objectAtIndex:indexPath.row] retain];
@@ -61,9 +72,14 @@ NSIndexPath *lastClickedIndexPath;
 			NSString *messageSingular = [NSString stringWithFormat:@"There is %d yarn in the '%@' brand", yarnCount, brand.friendlyName];
 			NSString *messagePlural = [NSString stringWithFormat:@"There are %d yarns in the '%@' brand", yarnCount, brand.friendlyName];
 			NSString *message = yarnCount > 1 ? messagePlural : messageSingular;
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"HOLD ON!" message:message delegate:self cancelButtonTitle:@"Don't delete" otherButtonTitles:@"Delete All",nil];
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"HOLD ON!" message:message delegate:self cancelButtonTitle:@"Don't Delete" otherButtonTitles:@"Delete All",nil];
 			[alert show];
 			[alert release];
+		} else {
+			Brand *selectedBrand = [self.brands objectAtIndex:_lastClickedIndexPath.row];
+			[selectedBrand delete];
+			[self.brands removeObjectAtIndex:_lastClickedIndexPath.row];
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:_lastClickedIndexPath] withRowAnimation:YES];
 		}
     }
 	if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -80,14 +96,32 @@ NSIndexPath *lastClickedIndexPath;
 		}
 		case 1:
 		{
-			Brand *selectedBrand = [self.brands objectAtIndex:lastClickedIndexPath.row];
-			NSMutableArray *yarnsForBrand = [Yarn byBrand:selectedBrand.name];
-			for(int i=0;i<[yarnsForBrand count];i++) {
-				[[yarnsForBrand objectAtIndex:i] delete];
+			UITextField *brandNameField = [alertView textFieldAtIndex:0];
+			if(nil == _lastClickedIndexPath) {
+				if([brandNameField.text length] == 0) {
+					[alertView dismissWithClickedButtonIndex:0 animated:YES];
+					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"FYI" message:@"A brand was not added because a brand name was not entered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+					[alert show];
+					[alert release];
+				} else {
+					CFUUIDRef uuidObj = CFUUIDCreate(nil);
+					NSString *brandUUID = (NSString*)CFUUIDCreateString(nil, uuidObj);
+					CFRelease(uuidObj);
+					Brand *newBrand = [[Brand alloc] initWithName:brandUUID friendlyName:brandNameField.text selected:YES];
+					[newBrand create];
+					self.brands = nil;
+					[tableView reloadData];
+				}
+			} else {
+				Brand *selectedBrand = [self.brands objectAtIndex:_lastClickedIndexPath.row];
+				NSMutableArray *yarnsForBrand = [Yarn byBrand:selectedBrand.name];
+				for(int i=0;i<[yarnsForBrand count];i++) {
+					[[yarnsForBrand objectAtIndex:i] delete];
+				}
+				[selectedBrand delete];
+				[self.brands removeObjectAtIndex:_lastClickedIndexPath.row];
+				[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:_lastClickedIndexPath] withRowAnimation:YES];
 			}
-			[selectedBrand delete];
-			[self.brands removeObjectAtIndex:lastClickedIndexPath.row];
-			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:lastClickedIndexPath] withRowAnimation:YES];
 			break;
 		}
 		default:
@@ -120,6 +154,7 @@ NSIndexPath *lastClickedIndexPath;
 }
 
 - (void)dealloc {
+	[_lastClickedIndexPath release];
 	[editButton release];
 	[addButton release];
 	[brands release];
