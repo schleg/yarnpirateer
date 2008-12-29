@@ -109,6 +109,8 @@
 					CFRelease(uuidObj);
 					Brand *newBrand = [[Brand alloc] initWithName:brandUUID friendlyName:brandNameField.text selected:YES];
 					[newBrand create];
+					[brandUUID release];
+					[newBrand release];
 					self.brands = nil;
 					[tableView reloadData];
 				}

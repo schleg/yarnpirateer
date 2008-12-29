@@ -119,6 +119,8 @@
 					CFRelease(uuidObj);
 					Weight *newWeight = [[Weight alloc] initWithName:weightUUID friendlyName:weightNameField.text selected:YES];
 					[newWeight create];
+					[weightUUID release];
+					[newWeight release];
 					self.weights = nil;
 					[tableView reloadData];
 				}
