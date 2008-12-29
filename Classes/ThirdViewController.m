@@ -64,15 +64,50 @@
 	[tableView reloadData];
 }
 
+NSIndexPath *lastClickedIndexPath;
+
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	lastClickedIndexPath = indexPath;
     [tableView beginUpdates];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-		[[self.weights objectAtIndex:indexPath.row] delete];
-        [self.weights removeObjectAtIndex:indexPath.row];
-		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }  if (editingStyle == UITableViewCellEditingStyleInsert) {
+		Weight *weight = [[self.weights objectAtIndex:indexPath.row] retain];
+		int yarnCount = [[Yarn byWeight:weight.name] count];
+		if(yarnCount > 0) {
+			NSString *messageSingular = [NSString stringWithFormat:@"There is %d yarn in the '%@' weight", yarnCount, weight.friendlyName];
+			NSString *messagePlural = [NSString stringWithFormat:@"There are %d yarns in the '%@' weight", yarnCount, weight.friendlyName];
+			NSString *message = yarnCount > 1 ? messagePlural : messageSingular;
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"HOLD ON!" message:message delegate:self cancelButtonTitle:@"Don't delete" otherButtonTitles:@"Delete All",nil];
+			[alert show];
+			[alert release];
+		}
+    }
+	if (editingStyle == UITableViewCellEditingStyleInsert) {
     }
     [tableView endUpdates];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	switch (buttonIndex) {
+		case 0:
+		{
+			[tableView reloadData];
+			break;			
+		}
+		case 1:
+		{
+			Weight *selectedWeight = [self.weights objectAtIndex:lastClickedIndexPath.row];
+			NSMutableArray *yarnsForWeight = [Yarn byWeight:selectedWeight.name];
+			for(int i=0;i<[yarnsForWeight count];i++) {
+				[[yarnsForWeight objectAtIndex:i] delete];
+			}
+			[selectedWeight delete];
+			[self.weights removeObjectAtIndex:lastClickedIndexPath.row];
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:lastClickedIndexPath] withRowAnimation:YES];
+			break;
+		}
+		default:
+			break;
+	}
 }
 
 - (void)didReceiveMemoryWarning {
