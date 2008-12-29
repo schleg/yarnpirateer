@@ -49,15 +49,50 @@
     return cell;
 }
 
+NSIndexPath *lastClickedIndexPath;
+
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	lastClickedIndexPath = indexPath;
     [tableView beginUpdates];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-		[[self.brands objectAtIndex:indexPath.row] delete];
-        [self.brands removeObjectAtIndex:indexPath.row];
-		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }  if (editingStyle == UITableViewCellEditingStyleInsert) {
+		Brand *brand = [[self.brands objectAtIndex:indexPath.row] retain];
+		int yarnCount = [[Yarn byBrand:brand.name] count];
+		if(yarnCount > 0) {
+			NSString *messageSingular = [NSString stringWithFormat:@"There is %d yarn in the '%@' brand", yarnCount, brand.friendlyName];
+			NSString *messagePlural = [NSString stringWithFormat:@"There are %d yarns in the '%@' brand", yarnCount, brand.friendlyName];
+			NSString *message = yarnCount > 1 ? messagePlural : messageSingular;
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"HOLD ON!" message:message delegate:self cancelButtonTitle:@"Don't delete" otherButtonTitles:@"Delete All",nil];
+			[alert show];
+			[alert release];
+		}
+    }
+	if (editingStyle == UITableViewCellEditingStyleInsert) {
     }
     [tableView endUpdates];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	switch (buttonIndex) {
+		case 0:
+		{
+			[tableView reloadData];
+			break;			
+		}
+		case 1:
+		{
+			Brand *selectedBrand = [self.brands objectAtIndex:lastClickedIndexPath.row];
+			NSMutableArray *yarnsForBrand = [Yarn byBrand:selectedBrand.name];
+			for(int i=0;i<[yarnsForBrand count];i++) {
+				[[yarnsForBrand objectAtIndex:i] delete];
+			}
+			[selectedBrand delete];
+			[self.brands removeObjectAtIndex:lastClickedIndexPath.row];
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:lastClickedIndexPath] withRowAnimation:YES];
+			break;
+		}
+		default:
+			break;
+	}
 }
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

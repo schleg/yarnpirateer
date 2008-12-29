@@ -114,7 +114,7 @@
 	[quantityLabel release];
 	[brandNameLabel release];
 	[yarnNameLabel release];
-	[selectedWeight release];
+	//[selectedWeight release];
 	[selectedBrand release];
 	[quantityTextField release];
 	[yarnNameTextField release];

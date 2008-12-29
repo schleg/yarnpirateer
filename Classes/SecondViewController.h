@@ -10,7 +10,7 @@
 #import "Yarn.h"
 #import "Brand.h"
 
-@interface SecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface SecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate> {
 	UITableView *tableView;
 	NSMutableArray *brands;
 	IBOutlet UIBarButtonItem *addButton;
