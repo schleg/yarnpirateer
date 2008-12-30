@@ -90,6 +90,11 @@
 			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"HOLD ON!" message:message delegate:self cancelButtonTitle:@"Don't delete" otherButtonTitles:@"Delete All",nil];
 			[alert show];
 			[alert release];
+		} else {
+			Weight *selectedWeight = [self.weights objectAtIndex:_lastClickedIndexPath.row];
+			[selectedWeight delete];
+			[self.weights removeObjectAtIndex:_lastClickedIndexPath.row];
+			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:_lastClickedIndexPath] withRowAnimation:YES];
 		}
     }
 	if (editingStyle == UITableViewCellEditingStyleInsert) {
