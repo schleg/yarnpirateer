@@ -15,7 +15,7 @@
 
 @implementation ThirdViewController
 
-@synthesize tableView, weights, addButton, editButton;
+@synthesize tableView, weights, addButton, editButton, deleteButton;
 
 - (NSMutableArray *)weights {
 	if(nil == weights) {
@@ -24,24 +24,51 @@
 	return weights;
 }
 
+- (void)cancelEditing {
+	_editing = NO;
+	[tableView setEditing:NO animated:YES];
+	[editButton setStyle:UIBarButtonItemStyleBordered];
+	editButton.title = @"Edit";	
+}
+
+- (void)cancelDeleting {
+	[tableView setEditing:NO animated:YES];
+	[deleteButton setStyle:UIBarButtonItemStyleBordered];
+	deleteButton.title = @"Delete";	
+}
+
+- (IBAction)delete {
+	if(_editing) {
+		[self cancelEditing];		
+	}
+	if([tableView isEditing]) {
+		[self cancelDeleting];
+	} else {
+		[tableView setEditing:YES animated:YES];
+		[deleteButton setStyle:UIBarButtonItemStyleDone];
+		deleteButton.title = @"Done";
+	}
+}
+
+- (IBAction)edit {
+	if([tableView isEditing]) {
+		[self cancelDeleting];
+	}
+	if(_editing) {
+		[self cancelEditing];
+	} else {
+		_editing = YES;
+		[editButton setStyle:UIBarButtonItemStyleDone];
+		editButton.title = @"Done";
+	}	
+}
+
 - (IBAction)add {
 	_lastClickedIndexPath = nil;
 	UIAlertView *promptForName = [[UIAlertView alloc] initWithTitle:@"Add a New Weight" message:@"Please type new weight name below" delegate:self cancelButtonTitle:@"Don't Add" otherButtonTitles:@"Add Weight",nil];
 	[promptForName addTextFieldWithValue:@"" label:@"New Weight Name"];
 	[promptForName show];
 	[promptForName release];
-}
-
-- (IBAction)edit {
-	if([tableView isEditing]) {
-		[tableView setEditing:NO animated:YES];
-		[editButton setStyle:UIBarButtonItemStyleBordered];
-		editButton.title = @"Edit";
-	} else {
-		[tableView setEditing:YES animated:YES];
-		[editButton setStyle:UIBarButtonItemStyleDone];
-		editButton.title = @"Done";
-	}
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -157,7 +184,7 @@
 
 - (void)dealloc {
 	[addButton release];
-	[editButton release];
+	[deleteButton release];
 	[weights release];
 	[tableView release];
     [super dealloc];

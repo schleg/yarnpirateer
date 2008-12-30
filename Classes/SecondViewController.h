@@ -14,16 +14,20 @@
 	UITableView *tableView;
 	NSMutableArray *brands;
 	IBOutlet UIBarButtonItem *addButton;
+	IBOutlet UIBarButtonItem *deleteButton;
 	IBOutlet UIBarButtonItem *editButton;
 	NSIndexPath *_lastClickedIndexPath;
+	BOOL _editing;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *brands;
 @property (nonatomic, retain) UIBarButtonItem *addButton;
+@property (nonatomic, retain) UIBarButtonItem *deleteButton;
 @property (nonatomic, retain) UIBarButtonItem *editButton;
 
-- (IBAction)edit;
 - (IBAction)add;
+- (IBAction)edit;
+- (IBAction)delete;
 
 @end

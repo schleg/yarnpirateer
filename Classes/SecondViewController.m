@@ -15,7 +15,7 @@
 
 @implementation SecondViewController
 
-@synthesize tableView, brands, addButton, editButton;
+@synthesize tableView, brands, addButton, editButton, deleteButton;
 
 - (NSMutableArray *)brands {
 	if(nil == brands) {
@@ -24,16 +24,43 @@
 	return brands;
 }
 
-- (IBAction)edit {
+- (void)cancelEditing {
+	_editing = NO;
+	[tableView setEditing:NO animated:YES];
+	[editButton setStyle:UIBarButtonItemStyleBordered];
+	editButton.title = @"Edit";	
+}
+
+- (void)cancelDeleting {
+	[tableView setEditing:NO animated:YES];
+	[deleteButton setStyle:UIBarButtonItemStyleBordered];
+	deleteButton.title = @"Delete";	
+}
+
+- (IBAction)delete {
+	if(_editing) {
+		[self cancelEditing];		
+	}
 	if([tableView isEditing]) {
-		[tableView setEditing:NO animated:YES];
-		[editButton setStyle:UIBarButtonItemStyleBordered];
-		editButton.title = @"Edit";
+		[self cancelDeleting];
 	} else {
 		[tableView setEditing:YES animated:YES];
+		[deleteButton setStyle:UIBarButtonItemStyleDone];
+		deleteButton.title = @"Done";
+	}
+}
+
+- (IBAction)edit {
+	if([tableView isEditing]) {
+		[self cancelDeleting];
+	}
+	if(_editing) {
+		[self cancelEditing];
+	} else {
+		_editing = YES;
 		[editButton setStyle:UIBarButtonItemStyleDone];
 		editButton.title = @"Done";
-	}
+	}	
 }
 
 - (IBAction)add {
@@ -157,6 +184,7 @@
 
 - (void)dealloc {
 	[_lastClickedIndexPath release];
+	[deleteButton release];
 	[editButton release];
 	[addButton release];
 	[brands release];
