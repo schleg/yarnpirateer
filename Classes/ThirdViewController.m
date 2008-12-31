@@ -28,7 +28,8 @@
 	_editing = NO;
 	[tableView setEditing:NO animated:YES];
 	[editButton setStyle:UIBarButtonItemStyleBordered];
-	editButton.title = @"Edit";	
+	editButton.title = @"Edit";
+	[tableView reloadData];
 }
 
 - (void)cancelDeleting {
@@ -60,6 +61,7 @@
 		_editing = YES;
 		[editButton setStyle:UIBarButtonItemStyleDone];
 		editButton.title = @"Done";
+		[tableView reloadData];
 	}	
 }
 
@@ -83,9 +85,19 @@
     }
 	Weight *weight = [self.weights objectAtIndex:indexPath.row];
 	cell.text = [NSString stringWithFormat:@"%@ (%d)", weight.friendlyName, [[Yarn byWeight:weight.name] count]];
+	
 	if(YES == [weight isselected]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
+
+	if(_editing)
+	{
+		[tableView deselectRowAtIndexPath:indexPath animated:NO];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
+	
     return cell;
 }
 

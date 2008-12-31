@@ -29,6 +29,7 @@
 	[tableView setEditing:NO animated:YES];
 	[editButton setStyle:UIBarButtonItemStyleBordered];
 	editButton.title = @"Edit";	
+	[tableView reloadData];
 }
 
 - (void)cancelDeleting {
@@ -60,6 +61,7 @@
 		_editing = YES;
 		[editButton setStyle:UIBarButtonItemStyleDone];
 		editButton.title = @"Done";
+		[tableView reloadData];
 	}	
 }
 
@@ -83,9 +85,19 @@
     }
 	Brand *brand = [self.brands objectAtIndex:indexPath.row];
 	cell.text = [NSString stringWithFormat:@"%@ (%d)", brand.friendlyName, [[Yarn byBrand:brand.name] count]];
+
 	if(YES == [brand isselected]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
+
+	if(_editing)
+	{
+		[tableView deselectRowAtIndexPath:indexPath animated:NO];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
+	
     return cell;
 }
 
