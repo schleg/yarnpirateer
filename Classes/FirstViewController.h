@@ -8,20 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "Yarn.h"
-#import "SelectBrandViewController.h"
 
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	UITableView *tableView;
 	NSMutableArray *yarns;
 	IBOutlet UIBarButtonItem *editButton;
+	IBOutlet UIBarButtonItem *addButton;
 	IBOutlet UILabel *titleLabel;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *yarns;
 @property (nonatomic, retain) UIBarButtonItem *editButton;
+@property (nonatomic, retain) UIBarButtonItem *addButton;
 @property (nonatomic, retain) UILabel *titleLabel;
 
 - (IBAction)edit;
+- (IBAction)add;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation FirstViewController
 
-@synthesize tableView, yarns, editButton, titleLabel;
+@synthesize tableView, yarns, editButton, addButton, titleLabel;
 
 - (NSMutableArray *)yarns {
 	if(nil == yarns) {
@@ -24,6 +24,10 @@
 		}
 	}
 	return yarns;
+}
+
+- (IBAction)add {
+	[self.tabBarController setSelectedIndex:3];
 }
 
 - (IBAction)edit {
@@ -81,6 +85,7 @@
 
 - (void)dealloc {
 	[editButton release];
+	[addButton release];
 	[titleLabel release];
 	[yarns release];
 	[tableView release];
