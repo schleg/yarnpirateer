@@ -102,15 +102,24 @@
 }
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	_lastClickedIndexPath = indexPath;
 	Weight *weight = [self.weights objectAtIndex:indexPath.row];
 	UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-	if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-		cell.accessoryType = UITableViewCellAccessoryNone;
-		[weight setIsselected:NO];
+	if(NO == _editing) {
+		if (NO == [weight isselected]) {
+			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+			[weight setIsselected:YES];
+			NSLog(@"Setting %@ to %d", weight.name, [weight isselected]);
+		} else {
+			cell.accessoryType = UITableViewCellAccessoryNone;
+			[weight setIsselected:NO];
+			NSLog(@"Setting %@ to %d", weight.name, [weight isselected]);
+		}		
 	} else {
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
-		[weight setIsselected:YES];
-		NSLog(@"Setting %@ to %d", weight.name, [weight isselected]);
+		UIAlertView *promptForName = [[UIAlertView alloc] initWithTitle:@"Edit Weight Name" message:@"Please edit the weight name below" delegate:self cancelButtonTitle:@"Don't Save" otherButtonTitles:@"Save Weight",nil];
+		[promptForName addTextFieldWithValue:weight.friendlyName label:@"Weight Name"];
+		[promptForName show];
+		[promptForName release];
 	}
 	self.weights = nil;
 	[tableView reloadData];
@@ -142,6 +151,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	UITextField *weightNameField = [alertView textFieldAtIndex:0];
 	switch (buttonIndex) {
 		case 0:
 		{
@@ -150,33 +160,48 @@
 		}
 		case 1:
 		{
-			UITextField *weightNameField = [alertView textFieldAtIndex:0];
-			if(nil == _lastClickedIndexPath) {
+			if(_editing)
+			{
+				Weight *selectedWeight = [self.weights objectAtIndex:_lastClickedIndexPath.row];
 				if([weightNameField.text length] == 0) {
 					[alertView dismissWithClickedButtonIndex:0 animated:YES];
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"FYI..." message:@"A weight was not added because a weight name was not entered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"FYI" message:@"The weight name was not changed because a weight name was not entered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 					[alert show];
 					[alert release];
 				} else {
-					CFUUIDRef uuidObj = CFUUIDCreate(nil);
-					NSString *weightUUID = (NSString*)CFUUIDCreateString(nil, uuidObj);
-					CFRelease(uuidObj);
-					Weight *newWeight = [[Weight alloc] initWithName:weightUUID friendlyName:weightNameField.text selected:YES];
-					[newWeight create];
-					[weightUUID release];
-					[newWeight release];
+					selectedWeight.friendlyName = weightNameField.text;
+					[selectedWeight update];
 					self.weights = nil;
 					[tableView reloadData];
-				}
+				}	
 			} else {
-				Weight *selectedWeight = [self.weights objectAtIndex:_lastClickedIndexPath.row];
-				NSMutableArray *yarnsForWeight = [Yarn byWeight:selectedWeight.name];
-				for(int i=0;i<[yarnsForWeight count];i++) {
-					[[yarnsForWeight objectAtIndex:i] delete];
-				}
-				[selectedWeight delete];
-				[self.weights removeObjectAtIndex:_lastClickedIndexPath.row];
-				[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:_lastClickedIndexPath] withRowAnimation:YES];
+				if(nil == _lastClickedIndexPath) {
+					if([weightNameField.text length] == 0) {
+						[alertView dismissWithClickedButtonIndex:0 animated:YES];
+						UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"FYI..." message:@"A weight was not added because a weight name was not entered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+						[alert show];
+						[alert release];
+					} else {
+						CFUUIDRef uuidObj = CFUUIDCreate(nil);
+						NSString *weightUUID = (NSString*)CFUUIDCreateString(nil, uuidObj);
+						CFRelease(uuidObj);
+						Weight *newWeight = [[Weight alloc] initWithName:weightUUID friendlyName:weightNameField.text selected:YES];
+						[newWeight create];
+						[weightUUID release];
+						[newWeight release];
+						self.weights = nil;
+						[tableView reloadData];
+					}
+				} else {
+					Weight *selectedWeight = [self.weights objectAtIndex:_lastClickedIndexPath.row];
+					NSMutableArray *yarnsForWeight = [Yarn byWeight:selectedWeight.name];
+					for(int i=0;i<[yarnsForWeight count];i++) {
+						[[yarnsForWeight objectAtIndex:i] delete];
+					}
+					[selectedWeight delete];
+					[self.weights removeObjectAtIndex:_lastClickedIndexPath.row];
+					[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:_lastClickedIndexPath] withRowAnimation:YES];
+				}				
 			}
 			break;
 		}

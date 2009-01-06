@@ -127,41 +127,57 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	UITextField *brandNameField = [alertView textFieldAtIndex:0];
 	switch (buttonIndex) {
 		case 0:
 		{
 			[tableView reloadData];
-			break;			
+			break;
 		}
 		case 1:
 		{
-			UITextField *brandNameField = [alertView textFieldAtIndex:0];
-			if(nil == _lastClickedIndexPath) {
+			if(_editing)
+			{
+				Brand *selectedBrand = [self.brands objectAtIndex:_lastClickedIndexPath.row];
 				if([brandNameField.text length] == 0) {
 					[alertView dismissWithClickedButtonIndex:0 animated:YES];
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"FYI" message:@"A brand was not added because a brand name was not entered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+					UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"FYI" message:@"The brand name was not changed because a brand name was not entered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 					[alert show];
 					[alert release];
 				} else {
-					CFUUIDRef uuidObj = CFUUIDCreate(nil);
-					NSString *brandUUID = (NSString*)CFUUIDCreateString(nil, uuidObj);
-					CFRelease(uuidObj);
-					Brand *newBrand = [[Brand alloc] initWithName:brandUUID friendlyName:brandNameField.text selected:YES];
-					[newBrand create];
-					[brandUUID release];
-					[newBrand release];
+					selectedBrand.friendlyName = brandNameField.text;
+					[selectedBrand update];
 					self.brands = nil;
 					[tableView reloadData];
 				}
 			} else {
-				Brand *selectedBrand = [self.brands objectAtIndex:_lastClickedIndexPath.row];
-				NSMutableArray *yarnsForBrand = [Yarn byBrand:selectedBrand.name];
-				for(int i=0;i<[yarnsForBrand count];i++) {
-					[[yarnsForBrand objectAtIndex:i] delete];
-				}
-				[selectedBrand delete];
-				[self.brands removeObjectAtIndex:_lastClickedIndexPath.row];
-				[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:_lastClickedIndexPath] withRowAnimation:YES];
+				if(nil == _lastClickedIndexPath) {
+					if([brandNameField.text length] == 0) {
+						[alertView dismissWithClickedButtonIndex:0 animated:YES];
+						UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"FYI" message:@"A brand was not added because a brand name was not entered" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+						[alert show];
+						[alert release];
+					} else {
+						CFUUIDRef uuidObj = CFUUIDCreate(nil);
+						NSString *brandUUID = (NSString*)CFUUIDCreateString(nil, uuidObj);
+						CFRelease(uuidObj);
+						Brand *newBrand = [[Brand alloc] initWithName:brandUUID friendlyName:brandNameField.text selected:YES];
+						[newBrand create];
+						[brandUUID release];
+						[newBrand release];
+						self.brands = nil;
+						[tableView reloadData];
+					}
+				} else {
+					Brand *selectedBrand = [self.brands objectAtIndex:_lastClickedIndexPath.row];
+					NSMutableArray *yarnsForBrand = [Yarn byBrand:selectedBrand.name];
+					for(int i=0;i<[yarnsForBrand count];i++) {
+						[[yarnsForBrand objectAtIndex:i] delete];
+					}
+					[selectedBrand delete];
+					[self.brands removeObjectAtIndex:_lastClickedIndexPath.row];
+					[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:_lastClickedIndexPath] withRowAnimation:YES];
+				}				
 			}
 			break;
 		}
@@ -171,15 +187,24 @@
 }
 
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	_lastClickedIndexPath = indexPath;
 	Brand *brand = [self.brands objectAtIndex:indexPath.row];
 	UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-	if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-		cell.accessoryType = UITableViewCellAccessoryNone;
-		[brand setIsselected:NO];
+	if(NO == _editing) {
+		if (NO == [brand isselected]) {
+			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+			[brand setIsselected:YES];
+			NSLog(@"Setting %@ to %d", brand.name, [brand isselected]);
+		} else {
+			cell.accessoryType = UITableViewCellAccessoryNone;
+			[brand setIsselected:NO];
+			NSLog(@"Setting %@ to %d", brand.name, [brand isselected]);
+		}		
 	} else {
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
-		[brand setIsselected:YES];
-		NSLog(@"Setting %@ to %d", brand.name, [brand isselected]);
+		UIAlertView *promptForName = [[UIAlertView alloc] initWithTitle:@"Edit Brand Name" message:@"Please edit the brand name below" delegate:self cancelButtonTitle:@"Don't Save" otherButtonTitles:@"Save Brand",nil];
+		[promptForName addTextFieldWithValue:brand.friendlyName label:@"Brand Name"];
+		[promptForName show];
+		[promptForName release];
 	}
 	self.brands = nil;
 	[tableView reloadData];
