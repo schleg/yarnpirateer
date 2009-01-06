@@ -19,6 +19,11 @@
 	return weights;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+	self.weights = nil;
+	[weightPicker reloadAllComponents];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"Select Weight";
@@ -77,7 +82,7 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-	return [self.weights count];
+	return [self.weights count] + 1;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
@@ -92,8 +97,10 @@
 }
 
 - (void)dealloc {
+	selectedBrand = nil;
 	[selectedBrand release];
 	[weightNameLabel release];
+	selectedWeight = nil;
 	[selectedWeight release];
 	[weightNameTextField release];
 	[weights release];

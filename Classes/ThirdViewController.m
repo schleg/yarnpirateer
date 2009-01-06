@@ -196,6 +196,7 @@
 
 - (void)dealloc {
 	[addButton release];
+	[editButton release];
 	[deleteButton release];
 	[weights release];
 	[tableView release];

@@ -92,6 +92,7 @@
 
 - (void)dealloc {
 	[brandNameLabel release];
+	selectedBrand = nil;
 	[selectedBrand release];
 	[navigationController release];
 	[brandNameTextField release];

@@ -62,7 +62,7 @@
 
 - (IBAction)saveYarn:(id)sender {
 	if(yarnNameTextField.text.length == 0) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OOPS!" message:@"Please enter a brand name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"OOPS!" message:@"Please enter a yarn name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alert show];
 		[alert release];
 		return;
@@ -114,7 +114,9 @@
 	[quantityLabel release];
 	[brandNameLabel release];
 	[yarnNameLabel release];
-	//[selectedWeight release];
+	selectedWeight = nil;
+	[selectedWeight release];
+	selectedBrand = nil;
 	[selectedBrand release];
 	[quantityTextField release];
 	[yarnNameTextField release];

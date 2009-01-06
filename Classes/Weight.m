@@ -39,7 +39,7 @@
 	BOOL retval = NO;
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
-	if (SQLITE_OK == sqlite3_open([databasePath UTF8String], &database)) {
+	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *insertStatement;
 		const char *sql = "INSERT INTO weight (name, friendlyName) VALUES (?,?)";
@@ -77,13 +77,13 @@
 		if (SQLITE_OK == prepared) {
 			while(SQLITE_ROW == sqlite3_step(selectStatement))
 			{
-				const char *nameResult = (char *)sqlite3_column_text(selectStatement, 0);
+				char *nameResult = (char *)sqlite3_column_text(selectStatement, 0);
 				NSString *name = (nameResult) ? [NSString stringWithUTF8String:nameResult] : @"";
 				
-				const char *friendlyNameResult = (char *)sqlite3_column_text(selectStatement, 1);
+				char *friendlyNameResult = (char *)sqlite3_column_text(selectStatement, 1);
 				NSString *friendlyName = (friendlyNameResult) ? [NSString stringWithUTF8String:friendlyNameResult] : @"";
 
-				const char *selectedResult = (char *)sqlite3_column_text(selectStatement, 2);
+				char *selectedResult = (char *)sqlite3_column_text(selectStatement, 2);
 				BOOL selected = NO;
 				if(nil != selectedResult) {
 					selected = atoi(selectedResult) == 1 ? YES : NO;
@@ -138,7 +138,7 @@
 - (void)read {
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
-	if (SQLITE_OK == sqlite3_open([databasePath UTF8String], &database)) {
+	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *selectStatement;
 		const char *sql = "SELECT friendlyName, selected FROM weight WHERE name =?";
