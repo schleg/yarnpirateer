@@ -10,18 +10,34 @@
 
 @implementation YarnCell
 
-@synthesize cell;
+@synthesize cell, nameLabel, brandLabel, weightLabel;
 
-+ (YarnCell *)cellWithName:(NSString *)name {
-	return [[[self alloc] initCellWithName:name] autorelease];
++ (YarnCell *)cellWithYarn:(Yarn *)yarn {
+	return [[[self alloc] initCellWithYarn:yarn] autorelease];
 }
 
-- (id)initCellWithName:(NSString *)name {
+- (id)initCellWithYarn:(Yarn *)yarn {
 	self = [super init];
 	if(nil != self) {
 		[[NSBundle mainBundle] loadNibNamed:@"YarnCell" owner:self options:nil];
+		
+		nameLabel.text = yarn.name;
+		nameLabel.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:21.0f];
+
+		brandLabel.text = yarn.brand.friendlyName;
+		brandLabel.font = [UIFont fontWithName:@"Helvetica" size:11.0f];
+		
+		weightLabel.text = yarn.weight.friendlyName;
+		weightLabel.font = [UIFont fontWithName:@"Helvetica" size:11.0f];
 	}
-	return self	;
+	return self;
+}
+
+- (void)dealloc {
+	[nameLabel release];
+	[brandLabel release];
+	[weightLabel release];
+	[super dealloc];
 }
 
 @end

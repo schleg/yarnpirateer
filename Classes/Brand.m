@@ -105,10 +105,10 @@
 			while(SQLITE_ROW == sqlite3_step(selectStatement))
 			{
 				char *nameResult = (char *)sqlite3_column_text(selectStatement, 0);
-				NSString *name = (nameResult) ? [NSString stringWithUTF8String:nameResult] : @"";
+				NSString *name = (nameResult) ? [[NSString stringWithUTF8String:nameResult] retain] : @"";
 				
 				char *friendlyNameResult = (char *)sqlite3_column_text(selectStatement, 1);
-				NSString *friendlyName = (friendlyNameResult) ? [NSString stringWithUTF8String:friendlyNameResult] : @"";
+				NSString *friendlyName = (friendlyNameResult) ? [[NSString stringWithUTF8String:friendlyNameResult] retain] : @"";
 				
 				char *selectedResult = (char *)sqlite3_column_text(selectStatement, 2);
 				BOOL selected = NO;
@@ -151,7 +151,7 @@
 			}
 
 			const char *friendlyNameResult = (char *)sqlite3_column_text(selectStatement, 0);
-			friendlyName = (friendlyNameResult) ? [NSString stringWithUTF8String:friendlyNameResult] : @"";
+			friendlyName = (friendlyNameResult) ? [[NSString stringWithUTF8String:friendlyNameResult] retain] : @"";
 			
 			const char *selectedResult = (char *)sqlite3_column_text(selectStatement, 1);
 			if(nil != selectedResult) {

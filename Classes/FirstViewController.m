@@ -10,7 +10,7 @@
 
 @implementation FirstViewController
 
-@synthesize tableView, yarns, editButton, addButton, titleLabel;
+@synthesize tableView, yarns, editButton, addButton, titleLabel, yarnCells;
 
 - (NSMutableArray *)yarns {
 	if(nil == yarns) {
@@ -24,6 +24,17 @@
 		}
 	}
 	return yarns;
+}
+
+- (NSMutableArray *)yarnCells {
+	if(nil == yarnCells) {
+		self.yarnCells = [[[NSMutableArray alloc] init] autorelease];
+		for(int i=0; i<[self.yarns count]; i++) {
+			Yarn *yarn = [self.yarns objectAtIndex:i];
+			[self.yarnCells addObject:[YarnCell cellWithYarn:yarn]];
+		}
+	}
+	return yarnCells;
 }
 
 - (IBAction)add {
@@ -53,10 +64,9 @@
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"default-cell";
     UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellId];
-	Yarn *yarn = [self.yarns objectAtIndex:indexPath.row];
     if (cell == nil) {
-        //cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:cellId] autorelease];
-		cell = [[YarnCell cellWithName:yarn.name] cell];
+		YarnCell *yarnCell = [self.yarnCells objectAtIndex:indexPath.row];
+		cell = yarnCell.cell;
     }
     return cell;
 }
@@ -73,6 +83,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	yarns = nil;
+	yarnCells = nil;
 	[tableView reloadData];
 	UINavigationController *newYarnNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
 	[newYarnNavController popToRootViewControllerAnimated:NO];

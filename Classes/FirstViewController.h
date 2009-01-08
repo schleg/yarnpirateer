@@ -16,6 +16,7 @@
 	IBOutlet UIBarButtonItem *editButton;
 	IBOutlet UIBarButtonItem *addButton;
 	IBOutlet UILabel *titleLabel;
+	NSMutableArray *yarnCells;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
@@ -23,6 +24,7 @@
 @property (nonatomic, retain) UIBarButtonItem *editButton;
 @property (nonatomic, retain) UIBarButtonItem *addButton;
 @property (nonatomic, retain) UILabel *titleLabel;
+@property (nonatomic, retain) NSMutableArray *yarnCells;
 
 - (IBAction)edit;
 - (IBAction)add;

@@ -7,15 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Yarn.h"
 
 @interface YarnCell : NSObject {
 	IBOutlet UITableViewCell *cell;	
+	IBOutlet UILabel *nameLabel;
+	IBOutlet UILabel *brandLabel;
+	IBOutlet UILabel *weightLabel;
 }
 
-+ (YarnCell *)cellWithName:(NSString *)name;
++ (YarnCell *)cellWithYarn:(Yarn *)yarn;
 
-- (id)initCellWithName:(NSString *)name;
+- (id)initCellWithYarn:(Yarn *)yarn;
 
 @property (nonatomic, retain) UITableViewCell *cell;
+@property (nonatomic, retain) UILabel *nameLabel;
+@property (nonatomic, retain) UILabel *brandLabel;
+@property (nonatomic, retain) UILabel *weightLabel;
 
 @end
