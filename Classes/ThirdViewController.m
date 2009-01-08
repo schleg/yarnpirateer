@@ -109,11 +109,11 @@
 		if (NO == [weight isselected]) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 			[weight setIsselected:YES];
-			NSLog(@"Setting %@ to %d", weight.name, [weight isselected]);
+			//NSLog(@"Setting %@ to %d", weight.name, [weight isselected]);
 		} else {
 			cell.accessoryType = UITableViewCellAccessoryNone;
 			[weight setIsselected:NO];
-			NSLog(@"Setting %@ to %d", weight.name, [weight isselected]);
+			//NSLog(@"Setting %@ to %d", weight.name, [weight isselected]);
 		}		
 	} else {
 		UIAlertView *promptForName = [[UIAlertView alloc] initWithTitle:@"Edit Weight Name" message:@"Please edit the weight name below" delegate:self cancelButtonTitle:@"Don't Save" otherButtonTitles:@"Save Weight",nil];

@@ -33,7 +33,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *insertStatement;
 		const char *sql = "INSERT INTO yarn (brandName, weightName, name, description, quantity) VALUES (?,?,?,?,?)";
 		int prepared = sqlite3_prepare(database, sql, -1, &insertStatement, NULL);
@@ -55,7 +55,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	return retval;
 }
@@ -66,7 +66,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (SQLITE_OK == sqlite3_open([databasePath UTF8String], &database)) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *selectStatement;
 		const char *sql = "SELECT pk FROM yarn WHERE brandName =?";
 		int prepared = sqlite3_prepare(database, sql, -1, &selectStatement, NULL);
@@ -88,7 +88,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	[_slh release];
 	return retval;	
@@ -100,7 +100,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (SQLITE_OK == sqlite3_open([databasePath UTF8String], &database)) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *selectStatement;
 		const char *sql = "SELECT pk FROM yarn WHERE weightName =?";
 		int prepared = sqlite3_prepare(database, sql, -1, &selectStatement, NULL);
@@ -122,7 +122,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	[_slh release];
 	return retval;	
@@ -134,7 +134,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (SQLITE_OK == sqlite3_open([databasePath UTF8String], &database)) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *selectStatement;
 		const char *sql = "SELECT pk FROM yarn";
 		int prepared = sqlite3_prepare(database, sql, -1, &selectStatement, NULL);
@@ -155,7 +155,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	[_slh release];
 	return retval;
@@ -165,7 +165,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *selectStatement;
 		const char *sql = "SELECT brandName, weightName, name, description, quantity FROM yarn WHERE pk =?";
 		int prepared = sqlite3_prepare(database, sql, -1, &selectStatement, NULL);
@@ -203,7 +203,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 }
 
@@ -212,7 +212,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *updateStatement;
 		const char *sql = "UPDATE yarn SET brandName =?, weightName =?, name => ?, description =?, quantity =? WHERE pk=?";
 		int prepared = sqlite3_prepare(database, sql, -1, &updateStatement, NULL);
@@ -234,7 +234,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	return retval;
 }
@@ -244,7 +244,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *deleteStatement;
 		const char *sql = "DELETE FROM yarn WHERE pk=?";
 		if(sqlite3_prepare(database, sql, -1, &deleteStatement, NULL) == SQLITE_OK) {
@@ -259,7 +259,7 @@
 		}	
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	return retval;
 }

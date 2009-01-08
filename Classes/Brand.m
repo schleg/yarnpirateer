@@ -40,7 +40,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *insertStatement;
 		const char *sql = "INSERT INTO brand (name, friendlyName) VALUES (?,?)";
 		int prepared = sqlite3_prepare(database, sql, -1, &insertStatement, NULL);
@@ -59,7 +59,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	return retval;
 }
@@ -68,7 +68,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *updateStatement;
 		const char *sql = "UPDATE brand SET selected =? WHERE name=?";
 		int prepared = sqlite3_prepare(database, sql, -1, &updateStatement, NULL);
@@ -87,7 +87,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 }
 
@@ -97,7 +97,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (SQLITE_OK == sqlite3_open([databasePath UTF8String], &database)) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *selectStatement;
 		const char *sql = "SELECT name, friendlyName, selected FROM brand";
 		int prepared = sqlite3_prepare(database, sql, -1, &selectStatement, NULL);
@@ -129,7 +129,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	[_slh release];
 	return retval;
@@ -139,7 +139,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *selectStatement;
 		const char *sql = "SELECT friendlyName, selected FROM brand WHERE name =?";
 		int prepared = sqlite3_prepare(database, sql, -1, &selectStatement, NULL);
@@ -166,7 +166,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 }
 
@@ -175,7 +175,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *updateStatement;
 		const char *sql = "UPDATE brand SET friendlyName =? WHERE name=?";
 		int prepared = sqlite3_prepare(database, sql, -1, &updateStatement, NULL);
@@ -194,7 +194,7 @@
 		}
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	return retval;
 }
@@ -204,7 +204,7 @@
 	sqlite3 *database;
 	NSString *databasePath = [[_slh databasePath] retain];
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		NSLog(@"Opened database: %@", databasePath);
+		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *deleteStatement;
 		const char *sql = "DELETE FROM brand WHERE name=?";
 		if(sqlite3_prepare(database, sql, -1, &deleteStatement, NULL) == SQLITE_OK) {
@@ -219,7 +219,7 @@
 		}	
 	}
 	sqlite3_close(database);
-	NSLog(@"Closed database: %@", databasePath);
+	//NSLog(@"Closed database: %@", databasePath);
 	[databasePath release];
 	return retval;
 }

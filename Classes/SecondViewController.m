@@ -194,11 +194,11 @@
 		if (NO == [brand isselected]) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 			[brand setIsselected:YES];
-			NSLog(@"Setting %@ to %d", brand.name, [brand isselected]);
+			//NSLog(@"Setting %@ to %d", brand.name, [brand isselected]);
 		} else {
 			cell.accessoryType = UITableViewCellAccessoryNone;
 			[brand setIsselected:NO];
-			NSLog(@"Setting %@ to %d", brand.name, [brand isselected]);
+			//NSLog(@"Setting %@ to %d", brand.name, [brand isselected]);
 		}		
 	} else {
 		UIAlertView *promptForName = [[UIAlertView alloc] initWithTitle:@"Edit Brand Name" message:@"Please edit the brand name below" delegate:self cancelButtonTitle:@"Don't Save" otherButtonTitles:@"Save Brand",nil];
