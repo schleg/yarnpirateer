@@ -14,6 +14,7 @@
 	IBOutlet UILabel *nameLabel;
 	IBOutlet UILabel *brandLabel;
 	IBOutlet UILabel *weightLabel;
+	IBOutlet UILabel *quantityLabel;
 }
 
 + (YarnCell *)cellWithYarn:(Yarn *)yarn;
@@ -24,5 +25,6 @@
 @property (nonatomic, retain) UILabel *nameLabel;
 @property (nonatomic, retain) UILabel *brandLabel;
 @property (nonatomic, retain) UILabel *weightLabel;
+@property (nonatomic, retain) UILabel *quantityLabel;
 
 @end

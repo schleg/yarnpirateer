@@ -10,7 +10,7 @@
 
 @implementation YarnCell
 
-@synthesize cell, nameLabel, brandLabel, weightLabel;
+@synthesize cell, nameLabel, brandLabel, weightLabel, quantityLabel;
 
 + (YarnCell *)cellWithYarn:(Yarn *)yarn {
 	return [[[self alloc] initCellWithYarn:yarn] autorelease];
@@ -29,6 +29,9 @@
 		
 		weightLabel.text = yarn.weight.friendlyName;
 		weightLabel.font = [UIFont fontWithName:@"Helvetica" size:11.0f];
+		
+		quantityLabel.text = [NSString stringWithFormat:@"%d yds", yarn.quantity];
+		quantityLabel.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:21.0f];
 	}
 	return self;
 }
