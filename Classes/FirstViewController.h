@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Yarn.h"
+#import "YarnCell.h"
 
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	UITableView *tableView;

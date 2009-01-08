@@ -46,14 +46,18 @@
     return [self.yarns count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 96.0f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"default-cell";
     UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:cellId] autorelease];
-    }
 	Yarn *yarn = [self.yarns objectAtIndex:indexPath.row];
-	cell.text = yarn.name;
+    if (cell == nil) {
+        //cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:cellId] autorelease];
+		cell = [[YarnCell cellWithName:yarn.name] cell];
+    }
     return cell;
 }
 
@@ -63,7 +67,6 @@
 		[[self.yarns objectAtIndex:indexPath.row] delete];
         [self.yarns removeObjectAtIndex:indexPath.row];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
-    }  if (editingStyle == UITableViewCellEditingStyleInsert) {
     }
     [tableView endUpdates];
 }
