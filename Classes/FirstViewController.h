@@ -13,7 +13,7 @@
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	UITableView *tableView;
 	NSMutableArray *yarns;
-	IBOutlet UIBarButtonItem *editButton;
+	IBOutlet UIBarButtonItem *deleteButton;
 	IBOutlet UIBarButtonItem *addButton;
 	IBOutlet UILabel *titleLabel;
 	NSMutableArray *yarnCells;
@@ -21,7 +21,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *yarns;
-@property (nonatomic, retain) UIBarButtonItem *editButton;
+@property (nonatomic, retain) UIBarButtonItem *deleteButton;
 @property (nonatomic, retain) UIBarButtonItem *addButton;
 @property (nonatomic, retain) UILabel *titleLabel;
 @property (nonatomic, retain) NSMutableArray *yarnCells;

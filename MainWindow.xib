@@ -8,7 +8,6 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="151"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -51,7 +50,7 @@
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUIViewController" key="IBUISelectedViewController" id="1024858337">
 					<object class="IBUIView" key="IBUIView" id="640917061">
-						<reference key="NSNextResponder"/>
+						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">274</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -72,11 +71,6 @@
 									</object>
 									<object class="IBUIBarButtonItem" id="835049258">
 										<string key="IBUITitle">Delete</string>
-										<int key="IBUIStyle">1</int>
-										<reference key="IBUIToolbar" ref="943565822"/>
-									</object>
-									<object class="IBUIBarButtonItem" id="779984220">
-										<string key="IBUITitle">Edit</string>
 										<int key="IBUIStyle">1</int>
 										<reference key="IBUIToolbar" ref="943565822"/>
 									</object>
@@ -105,7 +99,7 @@
 							<object class="IBUILabel" id="310819815">
 								<reference key="NSNextResponder" ref="640917061"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{210, 11}, {71, 21}}</string>
+								<string key="NSFrame">{{124, 11}, {71, 21}}</string>
 								<reference key="NSSuperview" ref="640917061"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -123,7 +117,6 @@
 							</object>
 						</object>
 						<string key="NSFrameSize">{320, 411}</string>
-						<reference key="NSSuperview"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -139,7 +132,6 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">YarnPirateerTabBarIcon.png</string>
 						</object>
-						<reference key="IBUITabBar"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="1034742383"/>
 				</object>
@@ -237,7 +229,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="807309489">
 							<string key="IBUITitle">Brands</string>
 							<reference key="IBUIImage" ref="913348313"/>
-							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 					</object>
@@ -333,7 +324,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="81463552">
 							<string key="IBUITitle">Weights</string>
 							<reference key="IBUIImage" ref="913348313"/>
-							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 					</object>
@@ -341,7 +331,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="373430076">
 							<string key="IBUITitle">Add Yarn</string>
 							<reference key="IBUIImage" ref="913348313"/>
-							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -460,14 +449,6 @@
 						<reference key="destination" ref="43209173"/>
 					</object>
 					<int key="connectionID">169</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">editButton</string>
-						<reference key="source" ref="1024858337"/>
-						<reference key="destination" ref="835049258"/>
-					</object>
-					<int key="connectionID">186</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -621,6 +602,14 @@
 					</object>
 					<int key="connectionID">229</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">deleteButton</string>
+						<reference key="source" ref="1024858337"/>
+						<reference key="destination" ref="835049258"/>
+					</object>
+					<int key="connectionID">230</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -773,7 +762,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="835049258"/>
 							<reference ref="762594048"/>
-							<reference ref="779984220"/>
 						</object>
 						<reference key="parent" ref="640917061"/>
 					</object>
@@ -903,11 +891,6 @@
 						<reference key="object" ref="181755469"/>
 						<reference key="parent" ref="422910727"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">228</int>
-						<reference key="object" ref="779984220"/>
-						<reference key="parent" ref="943565822"/>
-					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -958,7 +941,6 @@
 					<string>200.IBPluginDependency</string>
 					<string>201.IBPluginDependency</string>
 					<string>202.IBPluginDependency</string>
-					<string>228.IBPluginDependency</string>
 					<string>3.CustomClassName</string>
 					<string>3.IBPluginDependency</string>
 				</object>
@@ -1016,7 +998,6 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>YarnPirateerAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
@@ -1041,7 +1022,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">229</int>
+			<int key="maxID">230</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1067,7 +1048,7 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addButton</string>
-							<string>editButton</string>
+							<string>deleteButton</string>
 							<string>tableView</string>
 							<string>titleLabel</string>
 						</object>

@@ -10,7 +10,7 @@
 
 @implementation FirstViewController
 
-@synthesize tableView, yarns, editButton, addButton, titleLabel, yarnCells;
+@synthesize tableView, yarns, deleteButton, addButton, titleLabel, yarnCells;
 
 - (NSMutableArray *)yarns {
 	if(nil == yarns) {
@@ -44,12 +44,12 @@
 - (IBAction)delete {
 	if([tableView isEditing]) {
 		[tableView setEditing:NO animated:YES];
-		[editButton setStyle:UIBarButtonItemStyleBordered];
-		editButton.title = @"Delete";
+		[deleteButton setStyle:UIBarButtonItemStyleBordered];
+		deleteButton.title = @"Delete";
 	} else {
 		[tableView setEditing:YES animated:YES];
-		[editButton setStyle:UIBarButtonItemStyleDone];
-		editButton.title = @"Done";
+		[deleteButton setStyle:UIBarButtonItemStyleDone];
+		deleteButton.title = @"Done";
 	}
 }
 
@@ -98,7 +98,7 @@
 }
 
 - (void)dealloc {
-	[editButton release];
+	[deleteButton release];
 	[addButton release];
 	[titleLabel release];
 	[yarns release];
