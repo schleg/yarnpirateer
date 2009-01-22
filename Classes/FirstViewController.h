@@ -26,7 +26,7 @@
 @property (nonatomic, retain) UILabel *titleLabel;
 @property (nonatomic, retain) NSMutableArray *yarnCells;
 
-- (IBAction)edit;
+- (IBAction)delete;
 - (IBAction)add;
 
 @end

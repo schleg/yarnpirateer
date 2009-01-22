@@ -41,11 +41,11 @@
 	[self.tabBarController setSelectedIndex:3];
 }
 
-- (IBAction)edit {
+- (IBAction)delete {
 	if([tableView isEditing]) {
 		[tableView setEditing:NO animated:YES];
 		[editButton setStyle:UIBarButtonItemStyleBordered];
-		editButton.title = @"Edit";
+		editButton.title = @"Delete";
 	} else {
 		[tableView setEditing:YES animated:YES];
 		[editButton setStyle:UIBarButtonItemStyleDone];
