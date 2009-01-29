@@ -42,6 +42,10 @@
 	[self.tabBarController setSelectedIndex:3];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[self.tabBarController setSelectedIndex:3];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.yarns count];
 }
@@ -53,6 +57,7 @@
 		cell = [[UITableViewCell alloc] init];
 		Yarn *yarn = ((Yarn *)[self.yarns objectAtIndex:indexPath.row]);
 		cell.text = [NSString stringWithFormat:@"%@ (%d yds)", yarn.name, yarn.quantity];
+		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     return cell;
 }
