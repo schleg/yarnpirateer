@@ -86,10 +86,8 @@
 	yarnCells = nil;
 	[tableView reloadData];
 	UINavigationController *newYarnNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
-	[newYarnNavController popToRootViewControllerAnimated:NO];
-	
+	[newYarnNavController popToRootViewControllerAnimated:NO];	
 	float uiFontSize = 18.0f;
-
 	titleLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 }
 
