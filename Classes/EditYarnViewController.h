@@ -1,5 +1,5 @@
 //
-//  AddYarnViewController.h
+//  EditYarnViewController.h
 //  YarnPirateer
 //
 //  Created by Tyler Schlegel on 12/14/08.
@@ -12,7 +12,7 @@
 #import "Yarn.h"
 #import "SelectBrandViewController.h"
 
-@interface AddYarnViewController : UIViewController<UITextFieldDelegate> {
+@interface EditYarnViewController : UIViewController<UITextFieldDelegate> {
 	IBOutlet UILabel *selectedBrandLabel;
 	IBOutlet UILabel *selectedWeightLabel;
 	IBOutlet UIButton *saveYarnButton;

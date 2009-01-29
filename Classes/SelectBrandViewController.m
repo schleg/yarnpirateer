@@ -10,7 +10,7 @@
 
 @implementation SelectBrandViewController
 
-@synthesize navigationController, selectBrandButton, brandPicker, brands, selectedBrand, brandNameTextField, brandNameLabel;
+@synthesize navigationController, selectBrandButton, brandPicker, brands, selectedBrand, brandNameTextField, brandNameLabel, editingYarn;
 
 - (NSMutableArray *)brands {
 	if(nil == brands) {
@@ -94,6 +94,7 @@
 	[brandNameLabel release];
 	selectedBrand = nil;
 	[selectedBrand release];
+	[editingYarn release];
 	[navigationController release];
 	[brandNameTextField release];
 	[brands release];

@@ -19,7 +19,7 @@
 		870007600EED11F300671713 /* Yarn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8700075F0EED11F300671713 /* Yarn.m */; };
 		870405690EF4F9D300E08EFE /* SelectWeightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870405680EF4F9D300E08EFE /* SelectWeightView.xib */; };
 		870405F20EF6199F00E08EFE /* SelectWeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870405F10EF6199F00E08EFE /* SelectWeightViewController.m */; };
-		870406640EF620DF00E08EFE /* AddYarnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870406630EF620DF00E08EFE /* AddYarnViewController.m */; };
+		870406640EF620DF00E08EFE /* EditYarnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870406630EF620DF00E08EFE /* EditYarnViewController.m */; };
 		870406660EF620F400E08EFE /* AddYarnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870406650EF620F400E08EFE /* AddYarnView.xib */; };
 		87A6EBBC0EECF5BA00A683E0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A6EBBB0EECF5BA00A683E0 /* SecondViewController.m */; };
 		87A6EC1B0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 87A6EC1A0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png */; };
@@ -55,8 +55,8 @@
 		870405680EF4F9D300E08EFE /* SelectWeightView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectWeightView.xib; sourceTree = "<group>"; };
 		870405F00EF6199F00E08EFE /* SelectWeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWeightViewController.h; sourceTree = "<group>"; };
 		870405F10EF6199F00E08EFE /* SelectWeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWeightViewController.m; sourceTree = "<group>"; };
-		870406620EF620DF00E08EFE /* AddYarnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddYarnViewController.h; sourceTree = "<group>"; };
-		870406630EF620DF00E08EFE /* AddYarnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddYarnViewController.m; sourceTree = "<group>"; };
+		870406620EF620DF00E08EFE /* EditYarnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditYarnViewController.h; sourceTree = "<group>"; };
+		870406630EF620DF00E08EFE /* EditYarnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditYarnViewController.m; sourceTree = "<group>"; };
 		870406650EF620F400E08EFE /* AddYarnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddYarnView.xib; sourceTree = "<group>"; };
 		87A6EBBA0EECF5BA00A683E0 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		87A6EBBB0EECF5BA00A683E0 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
@@ -181,8 +181,8 @@
 				87F7DF870EF4EED100EA0F9A /* SelectBrandViewController.m */,
 				870405F00EF6199F00E08EFE /* SelectWeightViewController.h */,
 				870405F10EF6199F00E08EFE /* SelectWeightViewController.m */,
-				870406620EF620DF00E08EFE /* AddYarnViewController.h */,
-				870406630EF620DF00E08EFE /* AddYarnViewController.m */,
+				870406620EF620DF00E08EFE /* EditYarnViewController.h */,
+				870406630EF620DF00E08EFE /* EditYarnViewController.m */,
 			);
 			name = NewYarnWizard;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 				870007600EED11F300671713 /* Yarn.m in Sources */,
 				87F7DF880EF4EED100EA0F9A /* SelectBrandViewController.m in Sources */,
 				870405F20EF6199F00E08EFE /* SelectWeightViewController.m in Sources */,
-				870406640EF620DF00E08EFE /* AddYarnViewController.m in Sources */,
+				870406640EF620DF00E08EFE /* EditYarnViewController.m in Sources */,
 				87E406060F15D193009EEADB /* YarnCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

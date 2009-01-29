@@ -1,14 +1,14 @@
 //
-//  AddYarnViewController.m
+//  EditYarnViewController.m
 //  YarnPirateer
 //
 //  Created by Tyler Schlegel on 12/14/08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
-#import "AddYarnViewController.h"
+#import "EditYarnViewController.h"
 
-@implementation AddYarnViewController
+@implementation EditYarnViewController
 
 @synthesize selectedBrand, 
 			selectedWeight, 

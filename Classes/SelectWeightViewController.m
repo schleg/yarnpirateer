@@ -10,7 +10,7 @@
 
 @implementation SelectWeightViewController
 
-@synthesize selectWeightButton, weightPicker, weights, selectedWeight, selectedBrand, weightNameTextField, weightNameLabel;
+@synthesize selectWeightButton, weightPicker, weights, selectedWeight, selectedBrand, weightNameTextField, weightNameLabel, editingYarn;
 
 - (NSMutableArray *)weights {
 	if(nil == weights) {
@@ -61,11 +61,11 @@
 		[alert release];
 		return;
 	}	
-	AddYarnViewController *addYarnViewController = [[AddYarnViewController alloc] initWithNibName:@"AddYarnView" bundle:nil];
-	addYarnViewController.selectedBrand = selectedBrand;
-	addYarnViewController.selectedWeight = selectedWeight;
-	[self.navigationController pushViewController:addYarnViewController animated:YES];
-	[addYarnViewController release];
+	EditYarnViewController *editYarnViewController = [[EditYarnViewController alloc] initWithNibName:@"AddYarnView" bundle:nil];
+	editYarnViewController.selectedBrand = selectedBrand;
+	editYarnViewController.selectedWeight = selectedWeight;
+	[self.navigationController pushViewController:editYarnViewController animated:YES];
+	[editYarnViewController release];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
@@ -102,6 +102,7 @@
 	[weightNameLabel release];
 	selectedWeight = nil;
 	[selectedWeight release];
+	[editingYarn release];
 	[weightNameTextField release];
 	[weights release];
 	[selectWeightButton release];
