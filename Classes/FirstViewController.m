@@ -10,7 +10,7 @@
 
 @implementation FirstViewController
 
-@synthesize tableView, yarns, deleteButton, addButton, titleLabel;
+@synthesize tableView, yarns, addButton, editButton;
 
 - (NSMutableArray *)yarns {
 	if(nil == yarns) {
@@ -26,20 +26,20 @@
 	return yarns;
 }
 
-- (IBAction)add {
-	[self.tabBarController setSelectedIndex:3];
-}
-
-- (IBAction)delete {
+- (IBAction)edit {
 	if([tableView isEditing]) {
 		[tableView setEditing:NO animated:YES];
-		[deleteButton setStyle:UIBarButtonItemStyleBordered];
-		deleteButton.title = @"Delete";
+		[editButton setStyle:UIBarButtonItemStyleBordered];
+		editButton.title = @"Edit";
 	} else {
 		[tableView setEditing:YES animated:YES];
-		[deleteButton setStyle:UIBarButtonItemStyleDone];
-		deleteButton.title = @"Done";
+		[editButton setStyle:UIBarButtonItemStyleDone];
+		editButton.title = @"Done";
 	}
+}
+
+- (IBAction)add {
+	[self.tabBarController setSelectedIndex:3];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -73,8 +73,6 @@
 	[tableView reloadData];
 	UINavigationController *newYarnNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
 	[newYarnNavController popToRootViewControllerAnimated:NO];	
-	float uiFontSize = 18.0f;
-	titleLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,9 +80,8 @@
 }
 
 - (void)dealloc {
-	[deleteButton release];
 	[addButton release];
-	[titleLabel release];
+	[editButton release];
 	[yarns release];
 	[tableView release];
     [super dealloc];
