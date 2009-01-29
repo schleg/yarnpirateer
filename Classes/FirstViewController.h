@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Yarn.h"
-#import "YarnCell.h"
 
 @interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	UITableView *tableView;
@@ -24,7 +23,6 @@
 @property (nonatomic, retain) UIBarButtonItem *deleteButton;
 @property (nonatomic, retain) UIBarButtonItem *addButton;
 @property (nonatomic, retain) UILabel *titleLabel;
-@property (nonatomic, retain) NSMutableArray *yarnCells;
 
 - (IBAction)delete;
 - (IBAction)add;

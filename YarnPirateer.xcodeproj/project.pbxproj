@@ -24,7 +24,6 @@
 		87A6EBBC0EECF5BA00A683E0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A6EBBB0EECF5BA00A683E0 /* SecondViewController.m */; };
 		87A6EC1B0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 87A6EC1A0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png */; };
 		87A6EC1F0EECFB5700A683E0 /* SQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A6EC1E0EECFB5700A683E0 /* SQLiteHelper.m */; };
-		87E406030F15D17A009EEADB /* YarnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E406020F15D17A009EEADB /* YarnCell.xib */; };
 		87E406060F15D193009EEADB /* YarnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E406050F15D193009EEADB /* YarnCell.m */; };
 		87F7DF850EF4EEBE00EA0F9A /* SelectBrandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F7DF840EF4EEBE00EA0F9A /* SelectBrandView.xib */; };
 		87F7DF880EF4EED100EA0F9A /* SelectBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F7DF870EF4EED100EA0F9A /* SelectBrandViewController.m */; };
@@ -64,7 +63,6 @@
 		87A6EC1A0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YarnPirateerTabBarIcon.png; sourceTree = "<group>"; };
 		87A6EC1D0EECFB5700A683E0 /* SQLiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteHelper.h; sourceTree = "<group>"; };
 		87A6EC1E0EECFB5700A683E0 /* SQLiteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteHelper.m; sourceTree = "<group>"; };
-		87E406020F15D17A009EEADB /* YarnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YarnCell.xib; sourceTree = "<group>"; };
 		87E406040F15D193009EEADB /* YarnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YarnCell.h; sourceTree = "<group>"; };
 		87E406050F15D193009EEADB /* YarnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YarnCell.m; sourceTree = "<group>"; };
 		87F7DF840EF4EEBE00EA0F9A /* SelectBrandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectBrandView.xib; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 				87A6EC1A0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
-				87E406020F15D17A009EEADB /* YarnCell.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -249,7 +246,6 @@
 				87F7DF850EF4EEBE00EA0F9A /* SelectBrandView.xib in Resources */,
 				870405690EF4F9D300E08EFE /* SelectWeightView.xib in Resources */,
 				870406660EF620F400E08EFE /* AddYarnView.xib in Resources */,
-				87E406030F15D17A009EEADB /* YarnCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

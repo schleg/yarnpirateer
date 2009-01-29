@@ -10,7 +10,7 @@
 
 @implementation FirstViewController
 
-@synthesize tableView, yarns, deleteButton, addButton, titleLabel, yarnCells;
+@synthesize tableView, yarns, deleteButton, addButton, titleLabel;
 
 - (NSMutableArray *)yarns {
 	if(nil == yarns) {
@@ -24,17 +24,6 @@
 		}
 	}
 	return yarns;
-}
-
-- (NSMutableArray *)yarnCells {
-	if(nil == yarnCells) {
-		self.yarnCells = [[[NSMutableArray alloc] init] autorelease];
-		for(int i=0; i<[self.yarns count]; i++) {
-			Yarn *yarn = [self.yarns objectAtIndex:i];
-			[self.yarnCells addObject:[YarnCell cellWithYarn:yarn]];
-		}
-	}
-	return yarnCells;
 }
 
 - (IBAction)add {
@@ -57,16 +46,13 @@
     return [self.yarns count];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 96.0f;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"default-cell";
     UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-		YarnCell *yarnCell = [self.yarnCells objectAtIndex:indexPath.row];
-		cell = yarnCell.cell;
+		cell = [[UITableViewCell alloc] init];
+		Yarn *yarn = ((Yarn *)[self.yarns objectAtIndex:indexPath.row]);
+		cell.text = [NSString stringWithFormat:@"%@ (%d yds)", yarn.name, yarn.quantity];
     }
     return cell;
 }
