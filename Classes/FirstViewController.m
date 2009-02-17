@@ -139,7 +139,7 @@ int alertViewIndex = -1;
 		cell = [[UITableViewCell alloc] init];
 		Yarn *yarn = ((Yarn *)[self.yarns objectAtIndex:indexPath.row]);
 		cell.text = [NSString stringWithFormat:@"%@ (%d yds)", yarn.name, yarn.quantity];
-		cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return cell;
 }
