@@ -32,7 +32,7 @@ int alertViewIndex = -1;
 	if([tableView isEditing]) {
 		[tableView setEditing:NO animated:YES];
 		[editButton setStyle:UIBarButtonItemStyleBordered];
-		editButton.title = @"Edit";
+		editButton.title = @"Remove";
 	} else {
 		[tableView setEditing:YES animated:YES];
 		[editButton setStyle:UIBarButtonItemStyleDone];
@@ -45,19 +45,16 @@ int alertViewIndex = -1;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	UITextField *textField = [[alertView textFieldAtIndex:0] retain];
+	Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
 	switch (alertViewIndex) {
 		case 0:
 		{
 			switch (buttonIndex) {
 				case 1:
 				{
-					UITextField *textField = [[alertView textFieldAtIndex:0] retain];
-					Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-					yarn.quantity = atoi([textField.text UTF8String]);
+					yarn.name = textField.text;
 					[yarn update];
-					yarns = nil;
-					yarnCells = nil;
-					[tableView reloadData];					
 					break;
 				}
 				default:
@@ -65,9 +62,26 @@ int alertViewIndex = -1;
 			}	
 			break;
 		}
+		case 1:
+		{
+			switch (buttonIndex) {
+				case 1:
+				{
+					yarn.quantity = atoi([textField.text UTF8String]);
+					[yarn update];
+					break;
+				}
+				default:
+					break;				
+			}
+			break;
+		}
 		default:
 			break;
 	}
+	yarns = nil;
+	yarnCells = nil;
+	[tableView reloadData];					
 	alertViewIndex = -1;
 }
 
@@ -75,21 +89,28 @@ int alertViewIndex = -1;
 	switch (buttonIndex) {
 		case 0:
 		{
+			Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+			NSString *title = @"Change Name";
+			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",nil];
+			[alertView addTextFieldWithValue:yarn.name label:@"Enter Name Here"];
+			[[alertView textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeDefault];
+			alertViewIndex = 0;
+			[alertView show];
 			break;			
 		}
 		case 1:
-		{
-			break;			
-		}
-		case 2:
 		{
 			Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
 			NSString *title = [NSString stringWithFormat:@"Quantity for \"%@\"", yarn.name];
 			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",nil];
 			[alertView addTextFieldWithValue:[NSString stringWithFormat:@"%d",yarn.quantity] label:@"0"];
 			[[alertView textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
-			alertViewIndex = 0;
+			alertViewIndex = 1;
 			[alertView show];
+			break;			
+		}
+		case 2:
+		{
 			break;			
 		}
 		default:
@@ -97,8 +118,12 @@ int alertViewIndex = -1;
 	}
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return YES;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Change Brand",@"Change Weight",@"Change Quantity",nil];
+	UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Change Name",@"Change Quantity",nil];
 	[sheet showInView:self.view];
 	[sheet release];
 }

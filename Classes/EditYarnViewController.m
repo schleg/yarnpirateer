@@ -49,15 +49,6 @@
 	quantityLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	brandNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	weightNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
-
-	/*
-	YarnPirateerAppDelegate *app = ((YarnPirateerAppDelegate *)[[UIApplication sharedApplication] delegate]);
-	if(nil != app.selectedYarn)
-	{
-		yarnNameTextField.text = app.selectedYarn.name;
-		quantityTextField.text = [NSString stringWithFormat:@"%d", app.selectedYarn.quantity];
-	}
-	*/
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {	

@@ -34,19 +34,6 @@
 	brandNameTextField.font = [UIFont fontWithName:brandNameTextField.font.fontName size:uiFontSize];
 	selectBrandButton.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	brandNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
-	/*
-	YarnPirateerAppDelegate *app = ((YarnPirateerAppDelegate *)[[UIApplication sharedApplication] delegate]);
-	if(nil != app.selectedYarn)
-	{
-		NSUInteger index = 0;
-		for(int i=0;i<self.brands.count;i++) {
-			if(((Brand *)[self.brands objectAtIndex:i]).name == app.selectedYarn.brand.name) {
-				index = i;
-			}
-		}
-		[brandPicker selectRow:index inComponent:0 animated:YES];
-	}
-	*/
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
