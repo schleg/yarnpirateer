@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Yarn.h"
 
 @interface YarnPirateerAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
     UIWindow *window;

@@ -48,7 +48,7 @@
 				NSAssert1(0, @"Failed to insert: %s", sqlite3_errmsg(database));
 			}
 
-			sqlite3_finalize(insertStatement);
+ 			retval = sqlite3_finalize(insertStatement) == 0;
 
 		} else {
 			NSAssert1(0, @"Failed to prepare: %s", sqlite3_errmsg(database));
@@ -195,8 +195,8 @@
 			
 			sqlite3_finalize(selectStatement);
 			
-			[brandName release];
-			[weightName release];
+			//[brandName release];
+			//[weightName release];
 		}
 		else {
 			NSAssert1(0, @"Failed to prepare: %s", sqlite3_errmsg(database));
@@ -214,20 +214,21 @@
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *updateStatement;
-		const char *sql = "UPDATE yarn SET brandName =?, weightName =?, name => ?, description =?, quantity =? WHERE pk=?";
+		const char *sql = "UPDATE yarn SET brandName =?, weightName =?, name =?, description =?, quantity =? WHERE pk=?";
 		int prepared = sqlite3_prepare(database, sql, -1, &updateStatement, NULL);
 		if(SQLITE_OK == prepared) {
 			sqlite3_bind_text(updateStatement, 1, [[brand name] UTF8String], -1, SQLITE_TRANSIENT);
-			sqlite3_bind_text(updateStatement, 2, [[brand friendlyName] UTF8String], -1, SQLITE_TRANSIENT);
+			sqlite3_bind_text(updateStatement, 2, [[weight name] UTF8String], -1, SQLITE_TRANSIENT);
 			sqlite3_bind_text(updateStatement, 3, [name UTF8String], -1, SQLITE_TRANSIENT);
 			sqlite3_bind_text(updateStatement, 4, [description UTF8String], -1, SQLITE_TRANSIENT);
 			sqlite3_bind_int(updateStatement, 5, quantity);
+			sqlite3_bind_int(updateStatement, 6, pk);
 			if(SQLITE_DONE != sqlite3_step(updateStatement))
 			{
 				NSAssert1(0, @"Failed to update: %s", sqlite3_errmsg(database));
 			}
 
-			sqlite3_finalize(updateStatement);
+			retval = sqlite3_finalize(updateStatement) == 0;
 			
 		} else {
 			NSAssert1(0, @"Failed to prepare: %s", sqlite3_errmsg(database));
@@ -254,7 +255,7 @@
 				NSAssert1(0, @"Failed to delete: %s", sqlite3_errmsg(database));
 			}
 
-			sqlite3_finalize(deleteStatement);
+			retval = sqlite3_finalize(deleteStatement) == 0;
 			
 		}	
 	}

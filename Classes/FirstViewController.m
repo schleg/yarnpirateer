@@ -12,6 +12,8 @@
 
 @synthesize tableView, yarns, addButton, editButton;
 
+int alertViewIndex = -1;
+
 - (NSMutableArray *)yarns {
 	if(nil == yarns) {
 		self.yarns = [[[NSMutableArray alloc] init] autorelease];
@@ -42,8 +44,63 @@
 	[self.tabBarController setSelectedIndex:3];
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	switch (alertViewIndex) {
+		case 0:
+		{
+			switch (buttonIndex) {
+				case 1:
+				{
+					UITextField *textField = [[alertView textFieldAtIndex:0] retain];
+					Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+					yarn.quantity = atoi([textField.text UTF8String]);
+					[yarn update];
+					yarns = nil;
+					yarnCells = nil;
+					[tableView reloadData];					
+					break;
+				}
+				default:
+					break;
+			}	
+			break;
+		}
+		default:
+			break;
+	}
+	alertViewIndex = -1;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	switch (buttonIndex) {
+		case 0:
+		{
+			break;			
+		}
+		case 1:
+		{
+			break;			
+		}
+		case 2:
+		{
+			Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+			NSString *title = [NSString stringWithFormat:@"Quantity for \"%@\"", yarn.name];
+			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",nil];
+			[alertView addTextFieldWithValue:[NSString stringWithFormat:@"%d",yarn.quantity] label:@"0"];
+			[[alertView textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+			alertViewIndex = 0;
+			[alertView show];
+			break;			
+		}
+		default:
+			break;
+	}
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[self.tabBarController setSelectedIndex:3];
+	UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Change Brand",@"Change Weight",@"Change Quantity",nil];
+	[sheet showInView:self.view];
+	[sheet release];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -77,7 +134,7 @@
 	yarnCells = nil;
 	[tableView reloadData];
 	UINavigationController *newYarnNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
-	[newYarnNavController popToRootViewControllerAnimated:NO];	
+	[newYarnNavController popToRootViewControllerAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {

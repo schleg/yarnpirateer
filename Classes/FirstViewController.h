@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Yarn.h"
+#import "YarnPirateerAppDelegate.h"
 
-@interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate> {
 	UITableView *tableView;
 	NSMutableArray *yarns;
 	IBOutlet UIBarButtonItem *addButton;

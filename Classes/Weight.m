@@ -52,7 +52,7 @@
 				NSAssert1(0, @"Failed to insert: %s", sqlite3_errmsg(database));
 			}
 			
-			sqlite3_finalize(insertStatement);
+			retval = sqlite3_finalize(insertStatement) == 0;
 
 		} else {
 			NSAssert1(0, @"Failed to prepare: %s", sqlite3_errmsg(database));
@@ -187,7 +187,7 @@
 				NSAssert1(0, @"Failed to update: %s", sqlite3_errmsg(database));
 			}
 
-			sqlite3_finalize(updateStatement);
+			retval = sqlite3_finalize(updateStatement) == 0;
 			
 		} else {
 			NSAssert1(0, @"Failed to prepare: %s", sqlite3_errmsg(database));
@@ -214,7 +214,7 @@
 				NSAssert1(0, @"Failed to delete: %s", sqlite3_errmsg(database));
 			}
 
-			sqlite3_finalize(deleteStatement);
+			retval = sqlite3_finalize(deleteStatement) == 0;
 			
 		}	
 	}

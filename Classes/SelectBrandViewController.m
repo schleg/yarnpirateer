@@ -10,7 +10,7 @@
 
 @implementation SelectBrandViewController
 
-@synthesize navigationController, selectBrandButton, brandPicker, brands, selectedBrand, brandNameTextField, brandNameLabel, editingYarn;
+@synthesize navigationController, selectBrandButton, brandPicker, brands, selectedBrand, brandNameTextField, brandNameLabel;
 
 - (NSMutableArray *)brands {
 	if(nil == brands) {
@@ -30,12 +30,23 @@
 	self.navigationItem.title = @"Select Brand";
 	brandNameTextField.returnKeyType = UIReturnKeyDone; 
 	brandNameTextField.delegate = self;
-	
 	float uiFontSize = 18.0f;
-	
 	brandNameTextField.font = [UIFont fontWithName:brandNameTextField.font.fontName size:uiFontSize];
 	selectBrandButton.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	brandNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
+	/*
+	YarnPirateerAppDelegate *app = ((YarnPirateerAppDelegate *)[[UIApplication sharedApplication] delegate]);
+	if(nil != app.selectedYarn)
+	{
+		NSUInteger index = 0;
+		for(int i=0;i<self.brands.count;i++) {
+			if(((Brand *)[self.brands objectAtIndex:i]).name == app.selectedYarn.brand.name) {
+				index = i;
+			}
+		}
+		[brandPicker selectRow:index inComponent:0 animated:YES];
+	}
+	*/
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -94,7 +105,6 @@
 	[brandNameLabel release];
 	selectedBrand = nil;
 	[selectedBrand release];
-	[editingYarn release];
 	[navigationController release];
 	[brandNameTextField release];
 	[brands release];

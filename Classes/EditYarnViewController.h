@@ -11,6 +11,7 @@
 #import "Brand.h"
 #import "Yarn.h"
 #import "SelectBrandViewController.h"
+#import "YarnPirateerAppDelegate.h"
 
 @interface EditYarnViewController : UIViewController<UITextFieldDelegate> {
 	IBOutlet UILabel *selectedBrandLabel;

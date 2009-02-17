@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Weight.h"
 #import "Brand.h"
-#import "Yarn.h"
 #import "EditYarnViewController.h";
 
 @interface SelectWeightViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate> {
@@ -20,7 +19,6 @@
 	NSMutableArray *weights;
 	Weight *selectedWeight;
 	Brand *selectedBrand;
-	Yarn *editingYarn;
 }
 
 @property (nonatomic, retain) UIButton *selectWeightButton;
@@ -28,7 +26,6 @@
 @property (nonatomic, retain) NSMutableArray *weights;
 @property (nonatomic, retain) Weight *selectedWeight;
 @property (nonatomic, retain) Brand *selectedBrand;
-@property (nonatomic, retain) Yarn *editingYarn;
 @property (nonatomic, retain) UITextField *weightNameTextField;
 @property (nonatomic, retain) UILabel *weightNameLabel;
 

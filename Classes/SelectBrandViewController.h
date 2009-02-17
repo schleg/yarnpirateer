@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Brand.h"
 #import "SelectWeightViewController.h"
-#import "Yarn.h"
 
 @interface SelectBrandViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate> {
 	IBOutlet UINavigationController *navigationController;
@@ -20,7 +19,6 @@
 	IBOutlet UILabel *brandNameLabel;
 	NSMutableArray *brands;
 	Brand *selectedBrand;
-	Yarn *editingYarn;
 }
 
 @property (nonatomic, retain) UINavigationController *navigationController;
@@ -28,7 +26,6 @@
 @property (nonatomic, retain) UIPickerView *brandPicker;
 @property (nonatomic, retain) NSMutableArray *brands;
 @property (nonatomic, retain) Brand *selectedBrand;
-@property (nonatomic, retain) Yarn *editingYarn;
 @property (nonatomic, retain) UITextField *brandNameTextField;
 @property (nonatomic, retain) UILabel *brandNameLabel;
 

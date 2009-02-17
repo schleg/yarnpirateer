@@ -10,7 +10,7 @@
 
 @implementation SelectWeightViewController
 
-@synthesize selectWeightButton, weightPicker, weights, selectedWeight, selectedBrand, weightNameTextField, weightNameLabel, editingYarn;
+@synthesize selectWeightButton, weightPicker, weights, selectedWeight, selectedBrand, weightNameTextField, weightNameLabel;
 
 - (NSMutableArray *)weights {
 	if(nil == weights) {
@@ -102,7 +102,6 @@
 	[weightNameLabel release];
 	selectedWeight = nil;
 	[selectedWeight release];
-	[editingYarn release];
 	[weightNameTextField release];
 	[weights release];
 	[selectWeightButton release];
