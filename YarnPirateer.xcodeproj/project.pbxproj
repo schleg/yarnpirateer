@@ -325,13 +325,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tyler Schlegel";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tyler Schlegel";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = YarnPirateer_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = YarnPirateer;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5DC3ECE6-89BE-4B9D-9479-E2F5DC443352";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "77C300AA-D0F9-40A4-AAA6-0B1A9A2A098C";
 			};
 			name = Distribution;
 		};
