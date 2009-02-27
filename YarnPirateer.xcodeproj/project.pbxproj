@@ -21,11 +21,12 @@
 		870405F20EF6199F00E08EFE /* SelectWeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870405F10EF6199F00E08EFE /* SelectWeightViewController.m */; };
 		870406640EF620DF00E08EFE /* EditYarnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870406630EF620DF00E08EFE /* EditYarnViewController.m */; };
 		870406660EF620F400E08EFE /* AddYarnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870406650EF620F400E08EFE /* AddYarnView.xib */; };
+		878B070B0F57AF6200216095 /* SortedByBrandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878B070A0F57AF6200216095 /* SortedByBrandCell.xib */; };
+		878B07110F57B00D00216095 /* YarnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B07100F57B00D00216095 /* YarnCell.m */; };
 		878D522F0F4A97F3004D0339 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 878D522E0F4A97F3004D0339 /* icon.png */; };
 		87A6EBBC0EECF5BA00A683E0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A6EBBB0EECF5BA00A683E0 /* SecondViewController.m */; };
 		87A6EC1B0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 87A6EC1A0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png */; };
 		87A6EC1F0EECFB5700A683E0 /* SQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A6EC1E0EECFB5700A683E0 /* SQLiteHelper.m */; };
-		87E406060F15D193009EEADB /* YarnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E406050F15D193009EEADB /* YarnCell.m */; };
 		87F7DF850EF4EEBE00EA0F9A /* SelectBrandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F7DF840EF4EEBE00EA0F9A /* SelectBrandView.xib */; };
 		87F7DF880EF4EED100EA0F9A /* SelectBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F7DF870EF4EED100EA0F9A /* SelectBrandViewController.m */; };
 		87FB22E30EECFC06007E55AA /* YarnPirateer.db in Resources */ = {isa = PBXBuildFile; fileRef = 87FB22E10EECFC06007E55AA /* YarnPirateer.db */; };
@@ -39,7 +40,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* YarnPirateerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YarnPirateerAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* YarnPirateerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YarnPirateerAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* YarnPirateer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YarnPirateer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Yarn Pirateer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yarn Pirateer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28216C950DB411BC00E5133A /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		28216C960DB411BC00E5133A /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
@@ -59,14 +60,15 @@
 		870406620EF620DF00E08EFE /* EditYarnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditYarnViewController.h; sourceTree = "<group>"; };
 		870406630EF620DF00E08EFE /* EditYarnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditYarnViewController.m; sourceTree = "<group>"; };
 		870406650EF620F400E08EFE /* AddYarnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddYarnView.xib; sourceTree = "<group>"; };
+		878B070A0F57AF6200216095 /* SortedByBrandCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortedByBrandCell.xib; sourceTree = "<group>"; };
+		878B070F0F57B00D00216095 /* YarnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YarnCell.h; sourceTree = "<group>"; };
+		878B07100F57B00D00216095 /* YarnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YarnCell.m; sourceTree = "<group>"; };
 		878D522E0F4A97F3004D0339 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		87A6EBBA0EECF5BA00A683E0 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		87A6EBBB0EECF5BA00A683E0 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		87A6EC1A0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YarnPirateerTabBarIcon.png; sourceTree = "<group>"; };
 		87A6EC1D0EECFB5700A683E0 /* SQLiteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLiteHelper.h; sourceTree = "<group>"; };
 		87A6EC1E0EECFB5700A683E0 /* SQLiteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteHelper.m; sourceTree = "<group>"; };
-		87E406040F15D193009EEADB /* YarnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YarnCell.h; sourceTree = "<group>"; };
-		87E406050F15D193009EEADB /* YarnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YarnCell.m; sourceTree = "<group>"; };
 		87F7DF840EF4EEBE00EA0F9A /* SelectBrandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectBrandView.xib; sourceTree = "<group>"; };
 		87F7DF860EF4EED100EA0F9A /* SelectBrandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBrandViewController.h; sourceTree = "<group>"; };
 		87F7DF870EF4EED100EA0F9A /* SelectBrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBrandViewController.m; sourceTree = "<group>"; };
@@ -117,8 +119,8 @@
 				87A6EBBB0EECF5BA00A683E0 /* SecondViewController.m */,
 				870007220EED0FFE00671713 /* ThirdViewController.h */,
 				870007230EED0FFE00671713 /* ThirdViewController.m */,
-				87E406040F15D193009EEADB /* YarnCell.h */,
-				87E406050F15D193009EEADB /* YarnCell.m */,
+				878B070F0F57B00D00216095 /* YarnCell.h */,
+				878B07100F57B00D00216095 /* YarnCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -126,7 +128,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* YarnPirateer.app */,
+				1D6058910D05DD3D006BFB54 /* Yarn Pirateer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,6 +157,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				878B07090F57AF2300216095 /* YarnCells */,
 				878D522E0F4A97F3004D0339 /* icon.png */,
 				87F7DF830EF4EE9600EA0F9A /* NewYarnWizard */,
 				87FB22E10EECFC06007E55AA /* YarnPirateer.db */,
@@ -175,6 +178,14 @@
 				288765070DF74369002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		878B07090F57AF2300216095 /* YarnCells */ = {
+			isa = PBXGroup;
+			children = (
+				878B070A0F57AF6200216095 /* SortedByBrandCell.xib */,
+			);
+			name = YarnCells;
 			sourceTree = "<group>";
 		};
 		879E303E0EF77DF70075A817 /* NewYarnWizard */ = {
@@ -217,7 +228,7 @@
 			);
 			name = YarnPirateer;
 			productName = YarnPirateer;
-			productReference = 1D6058910D05DD3D006BFB54 /* YarnPirateer.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Yarn Pirateer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -250,6 +261,7 @@
 				870405690EF4F9D300E08EFE /* SelectWeightView.xib in Resources */,
 				870406660EF620F400E08EFE /* AddYarnView.xib in Resources */,
 				878D522F0F4A97F3004D0339 /* icon.png in Resources */,
+				878B070B0F57AF6200216095 /* SortedByBrandCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +285,7 @@
 				87F7DF880EF4EED100EA0F9A /* SelectBrandViewController.m in Sources */,
 				870405F20EF6199F00E08EFE /* SelectWeightViewController.m in Sources */,
 				870406640EF620DF00E08EFE /* EditYarnViewController.m in Sources */,
-				87E406060F15D193009EEADB /* YarnCell.m in Sources */,
+				878B07110F57B00D00216095 /* YarnCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

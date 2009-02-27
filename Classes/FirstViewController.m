@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import "YarnCell.h"
 
 @implementation FirstViewController
 
@@ -119,7 +120,7 @@ int alertViewIndex = -1;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	return YES;
+	return NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,15 +134,19 @@ int alertViewIndex = -1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellId = @"default-cell";
-    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellId];
+	static NSString *cellId = @"yarn-cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-		cell = [[UITableViewCell alloc] init];
 		Yarn *yarn = ((Yarn *)[self.yarns objectAtIndex:indexPath.row]);
-		cell.text = [NSString stringWithFormat:@"%@ (%d yds)", yarn.name, yarn.quantity];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell = [[YarnCell yarnCellWithYarn:yarn] cell];
     }
+	
     return cell;
+	
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return 110.0f;
 }
 
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
