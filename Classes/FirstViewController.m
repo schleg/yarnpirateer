@@ -14,6 +14,8 @@
 @synthesize tableView, yarns, addButton, editButton;
 
 int alertViewIndex = -1;
+int actionSheetIndex = -1;
+NSString *yarnCellNibName = @"SortByBrandYarnCell";
 
 - (NSMutableArray *)yarns {
 	if(nil == yarns) {
@@ -39,6 +41,13 @@ int alertViewIndex = -1;
 		[editButton setStyle:UIBarButtonItemStyleDone];
 		editButton.title = @"Done";
 	}
+}
+
+- (IBAction)sort {
+	actionSheetIndex = 2;
+	UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Sort By Brand",@"Sort By Weight",@"Sort By Fiber",nil];
+	[sheet showInView:self.view];
+	[sheet release];	
 }
 
 - (IBAction)add {
@@ -82,41 +91,72 @@ int alertViewIndex = -1;
 	}
 	yarns = nil;
 	yarnCells = nil;
-	[tableView reloadData];					
+	[tableView reloadData];
 	alertViewIndex = -1;
 }
 
+- (void)sortYarn:(NSString *)nibName {
+	yarnCellNibName = nibName;
+	yarns = nil;
+	yarnCells = nil;
+	[tableView reloadData];	
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-	switch (buttonIndex) {
-		case 0:
-		{
-			Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-			NSString *title = @"Change Name";
-			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",nil];
-			[alertView addTextFieldWithValue:yarn.name label:@"Enter Name Here"];
-			[[alertView textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeDefault];
-			alertViewIndex = 0;
-			[alertView show];
-			break;			
-		}
+	switch (actionSheetIndex) {
 		case 1:
 		{
-			Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
-			NSString *title = [NSString stringWithFormat:@"Quantity for \"%@\"", yarn.name];
-			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",nil];
-			[alertView addTextFieldWithValue:[NSString stringWithFormat:@"%d",yarn.quantity] label:@"0"];
-			[[alertView textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
-			alertViewIndex = 1;
-			[alertView show];
-			break;			
+			switch (buttonIndex) {
+				case 0:
+				{
+					Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+					NSString *title = @"Change Name";
+					UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",nil];
+					[alertView addTextFieldWithValue:yarn.name label:@"Enter Name Here"];
+					[[alertView textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeDefault];
+					alertViewIndex = 0;
+					[alertView show];
+					break;			
+				}
+				case 1:
+				{
+					Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+					NSString *title = [NSString stringWithFormat:@"Quantity for \"%@\"", yarn.name];
+					UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",nil];
+					[alertView addTextFieldWithValue:[NSString stringWithFormat:@"%d",yarn.quantity] label:@"0"];
+					[[alertView textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+					alertViewIndex = 1;
+					[alertView show];
+					break;			
+				}
+				default:
+					break;
+			}
 		}
 		case 2:
 		{
-			break;			
+			switch(buttonIndex) {
+				case 0:
+				{
+					[self sortYarn:@"SortByBrandYarnCell"];
+					break;
+				}
+				case 1:
+				{
+					[self sortYarn:@"SortByWeightYarnCell"];
+					break;
+				}
+				case 2:
+				{
+					[self sortYarn:@"SortByFiberYarnCell"];
+					break;
+				}
+				default:
+					break;
+			}
 		}
-		default:
-			break;
 	}
+	actionSheetIndex = -1;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -124,6 +164,7 @@ int alertViewIndex = -1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	actionSheetIndex = 1;
 	UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Change Name",@"Change Quantity",nil];
 	[sheet showInView:self.view];
 	[sheet release];
@@ -138,7 +179,7 @@ int alertViewIndex = -1;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
 		Yarn *yarn = ((Yarn *)[self.yarns objectAtIndex:indexPath.row]);
-		cell = [[YarnCell yarnCellWithYarn:yarn nibName:@"SortByWeightYarnCell"] cell];
+		cell = [[YarnCell yarnCellWithYarn:yarn nibName:yarnCellNibName] cell];
     }
 	
     return cell;

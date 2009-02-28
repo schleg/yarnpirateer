@@ -25,5 +25,6 @@
 
 - (IBAction)add;
 - (IBAction)edit;
+- (IBAction)sort;
 
 @end
