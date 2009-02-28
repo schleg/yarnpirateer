@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="138"/>
+			<integer value="152"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -49,106 +49,84 @@
 			<object class="IBUITabBarController" id="1034742383">
 				<object class="IBUISimulatedTabBarMetrics" key="IBUISimulatedBottomBarMetrics"/>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="3857750">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="373430076">
-						<string key="IBUITitle">Add Yarn</string>
-						<object class="NSCustomResource" key="IBUIImage" id="757413931">
+				<object class="IBUIViewController" key="IBUISelectedViewController" id="1024858337">
+					<object class="IBUIView" key="IBUIView" id="640917061">
+						<reference key="NSNextResponder"/>
+						<int key="NSvFlags">274</int>
+						<object class="NSMutableArray" key="NSSubviews">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIToolbar" id="943565822">
+								<reference key="NSNextResponder" ref="640917061"/>
+								<int key="NSvFlags">266</int>
+								<string key="NSFrameSize">{320, 44}</string>
+								<reference key="NSSuperview" ref="640917061"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+								<int key="IBUIBarStyle">1</int>
+								<object class="NSMutableArray" key="IBUIItems">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<object class="IBUIBarButtonItem" id="762594048">
+										<string key="IBUITitle">Add</string>
+										<int key="IBUIStyle">1</int>
+										<reference key="IBUIToolbar" ref="943565822"/>
+									</object>
+									<object class="IBUIBarButtonItem" id="932044429">
+										<string key="IBUITitle">Remove</string>
+										<int key="IBUIStyle">1</int>
+										<reference key="IBUIToolbar" ref="943565822"/>
+									</object>
+									<object class="IBUIBarButtonItem" id="864076775">
+										<string key="IBUITitle">Sort</string>
+										<int key="IBUIStyle">1</int>
+										<reference key="IBUIToolbar" ref="943565822"/>
+									</object>
+								</object>
+							</object>
+							<object class="IBUITableView" id="99457932">
+								<reference key="NSNextResponder" ref="640917061"/>
+								<int key="NSvFlags">274</int>
+								<string key="NSFrame">{{0, 44}, {320, 367}}</string>
+								<reference key="NSSuperview" ref="640917061"/>
+								<object class="NSColor" key="IBUIBackgroundColor" id="119988191">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MQA</bytes>
+								</object>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+								<bool key="IBUIBouncesZoom">NO</bool>
+								<int key="IBUISeparatorStyle">1</int>
+								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
+								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
+								<float key="IBUIRowHeight">4.400000e+01</float>
+								<float key="IBUISectionHeaderHeight">2.200000e+01</float>
+								<float key="IBUISectionFooterHeight">2.200000e+01</float>
+							</object>
+						</object>
+						<string key="NSFrameSize">{320, 411}</string>
+						<reference key="NSSuperview"/>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MQA</bytes>
+							<object class="NSColorSpace" key="NSCustomColorSpace" id="378715716">
+								<int key="NSID">2</int>
+							</object>
+						</object>
+						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
+					</object>
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="765670903">
+						<string key="IBUITitle">My Stash</string>
+						<object class="NSCustomResource" key="IBUIImage" id="1013186439">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">YarnPirateerTabBarIcon.png</string>
 						</object>
 						<reference key="IBUITabBar"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="1034742383"/>
-					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="844056522">
-						<nil key="NSNextResponder"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrameSize">{0, 0}</string>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<bool key="IBUIMultipleTouchEnabled">YES</bool>
-						<int key="IBUIBarStyle">1</int>
-					</object>
-					<object class="NSMutableArray" key="IBUIViewControllers">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="888270370">
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="474853662">
-								<reference key="IBUINavigationBar"/>
-								<string key="IBUITitle"/>
-							</object>
-							<reference key="IBUIParentViewController" ref="3857750"/>
-							<string key="IBUINibName">SelectBrandView</string>
-						</object>
-					</object>
 				</object>
 				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIViewController" id="1024858337">
-						<object class="IBUIView" key="IBUIView" id="640917061">
-							<nil key="NSNextResponder"/>
-							<int key="NSvFlags">274</int>
-							<object class="NSMutableArray" key="NSSubviews">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="IBUIToolbar" id="943565822">
-									<reference key="NSNextResponder" ref="640917061"/>
-									<int key="NSvFlags">266</int>
-									<string key="NSFrameSize">{320, 44}</string>
-									<reference key="NSSuperview" ref="640917061"/>
-									<bool key="IBUIOpaque">NO</bool>
-									<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-									<int key="IBUIBarStyle">1</int>
-									<object class="NSMutableArray" key="IBUIItems">
-										<bool key="EncodedWithXMLCoder">YES</bool>
-										<object class="IBUIBarButtonItem" id="762594048">
-											<string key="IBUITitle">Add</string>
-											<int key="IBUIStyle">1</int>
-											<reference key="IBUIToolbar" ref="943565822"/>
-										</object>
-										<object class="IBUIBarButtonItem" id="932044429">
-											<string key="IBUITitle">Remove</string>
-											<int key="IBUIStyle">1</int>
-											<reference key="IBUIToolbar" ref="943565822"/>
-										</object>
-									</object>
-								</object>
-								<object class="IBUITableView" id="99457932">
-									<reference key="NSNextResponder" ref="640917061"/>
-									<int key="NSvFlags">274</int>
-									<string key="NSFrame">{{0, 44}, {320, 367}}</string>
-									<reference key="NSSuperview" ref="640917061"/>
-									<object class="NSColor" key="IBUIBackgroundColor" id="119988191">
-										<int key="NSColorSpace">3</int>
-										<bytes key="NSWhite">MQA</bytes>
-									</object>
-									<bool key="IBUIOpaque">NO</bool>
-									<bool key="IBUIClipsSubviews">YES</bool>
-									<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-									<bool key="IBUIBouncesZoom">NO</bool>
-									<int key="IBUISeparatorStyle">1</int>
-									<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
-									<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-									<float key="IBUIRowHeight">4.400000e+01</float>
-									<float key="IBUISectionHeaderHeight">2.200000e+01</float>
-									<float key="IBUISectionFooterHeight">2.200000e+01</float>
-								</object>
-							</object>
-							<string key="NSFrameSize">{320, 411}</string>
-							<object class="NSColor" key="IBUIBackgroundColor">
-								<int key="NSColorSpace">3</int>
-								<bytes key="NSWhite">MQA</bytes>
-								<object class="NSColorSpace" key="NSCustomColorSpace" id="378715716">
-									<int key="NSID">2</int>
-								</object>
-							</object>
-							<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-						</object>
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="765670903">
-							<string key="IBUITitle">My Stash</string>
-							<reference key="IBUIImage" ref="757413931"/>
-							<reference key="IBUITabBar"/>
-						</object>
-						<reference key="IBUIParentViewController" ref="1034742383"/>
-					</object>
+					<reference ref="1024858337"/>
 					<object class="IBUIViewController" id="268481961">
 						<object class="IBUIView" key="IBUIView" id="80382647">
 							<nil key="NSNextResponder"/>
@@ -239,7 +217,7 @@
 						</object>
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="807309489">
 							<string key="IBUITitle">Brands</string>
-							<reference key="IBUIImage" ref="757413931"/>
+							<reference key="IBUIImage" ref="1013186439"/>
 							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
@@ -335,12 +313,39 @@
 						</object>
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="81463552">
 							<string key="IBUITitle">Weights</string>
-							<reference key="IBUIImage" ref="757413931"/>
+							<reference key="IBUIImage" ref="1013186439"/>
 							<reference key="IBUITabBar"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="1034742383"/>
 					</object>
-					<reference ref="3857750"/>
+					<object class="IBUINavigationController" id="3857750">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="373430076">
+							<string key="IBUITitle">Add Yarn</string>
+							<reference key="IBUIImage" ref="1013186439"/>
+							<reference key="IBUITabBar"/>
+						</object>
+						<reference key="IBUIParentViewController" ref="1034742383"/>
+						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="844056522">
+							<nil key="NSNextResponder"/>
+							<int key="NSvFlags">256</int>
+							<string key="NSFrameSize">{0, 0}</string>
+							<bool key="IBUIOpaque">NO</bool>
+							<bool key="IBUIClipsSubviews">YES</bool>
+							<bool key="IBUIMultipleTouchEnabled">YES</bool>
+							<int key="IBUIBarStyle">1</int>
+						</object>
+						<object class="NSMutableArray" key="IBUIViewControllers">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIViewController" id="888270370">
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="474853662">
+									<string key="IBUITitle"/>
+								</object>
+								<reference key="IBUIParentViewController" ref="3857750"/>
+								<string key="IBUINibName">SelectBrandView</string>
+							</object>
+						</object>
+					</object>
 				</object>
 				<object class="IBUITabBar" key="IBUITabBar" id="795333663">
 					<nil key="NSNextResponder"/>
@@ -728,8 +733,8 @@
 						<reference key="object" ref="640917061"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="943565822"/>
 							<reference ref="99457932"/>
+							<reference ref="943565822"/>
 						</object>
 						<reference key="parent" ref="1024858337"/>
 					</object>
@@ -740,6 +745,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="762594048"/>
 							<reference ref="932044429"/>
+							<reference ref="864076775"/>
 						</object>
 						<reference key="parent" ref="640917061"/>
 					</object>
@@ -864,6 +870,11 @@
 						<reference key="object" ref="932044429"/>
 						<reference key="parent" ref="943565822"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">237</int>
+						<reference key="object" ref="864076775"/>
+						<reference key="parent" ref="943565822"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -913,6 +924,7 @@
 					<string>201.IBPluginDependency</string>
 					<string>202.IBPluginDependency</string>
 					<string>233.IBPluginDependency</string>
+					<string>237.IBPluginDependency</string>
 					<string>3.CustomClassName</string>
 					<string>3.IBPluginDependency</string>
 				</object>
@@ -969,6 +981,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>YarnPirateerAppDelegate</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
@@ -993,7 +1006,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">235</int>
+			<int key="maxID">237</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

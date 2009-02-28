@@ -11,18 +11,20 @@
 
 @interface YarnCell : NSObject {
 	IBOutlet UITableViewCell *cell;
-	IBOutlet UILabel *nameLabel;
+	IBOutlet UILabel *yarnLabel;
 	IBOutlet UILabel *fiberLabel;
 	IBOutlet UILabel *weightLabel;
+	IBOutlet UILabel *brandLabel;
 }
 
-+ (YarnCell *)yarnCellWithYarn:(Yarn *)yarn;
++ (YarnCell *)yarnCellWithYarn:(Yarn *)yarn nibName:(NSString *)name;
 
-- (id)initYarnCellWithYarn:(Yarn *)yarn;
+- (id)initYarnCellWithYarn:(Yarn *)yarn nibName:(NSString *)name;
 
 @property (nonatomic, retain) UITableViewCell *cell;
-@property (nonatomic, retain) UILabel *nameLabel;
+@property (nonatomic, retain) UILabel *yarnLabel;
 @property (nonatomic, retain) UILabel *fiberLabel;
 @property (nonatomic, retain) UILabel *weightLabel;
+@property (nonatomic, retain) UILabel *brandLabel;
 
 @end

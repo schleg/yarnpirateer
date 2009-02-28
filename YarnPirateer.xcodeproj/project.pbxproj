@@ -21,7 +21,7 @@
 		870405F20EF6199F00E08EFE /* SelectWeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870405F10EF6199F00E08EFE /* SelectWeightViewController.m */; };
 		870406640EF620DF00E08EFE /* EditYarnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870406630EF620DF00E08EFE /* EditYarnViewController.m */; };
 		870406660EF620F400E08EFE /* AddYarnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870406650EF620F400E08EFE /* AddYarnView.xib */; };
-		878B070B0F57AF6200216095 /* SortedByBrandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878B070A0F57AF6200216095 /* SortedByBrandCell.xib */; };
+		878B070B0F57AF6200216095 /* SortByBrandYarnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878B070A0F57AF6200216095 /* SortByBrandYarnCell.xib */; };
 		878B07110F57B00D00216095 /* YarnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B07100F57B00D00216095 /* YarnCell.m */; };
 		878D522F0F4A97F3004D0339 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 878D522E0F4A97F3004D0339 /* icon.png */; };
 		87A6EBBC0EECF5BA00A683E0 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A6EBBB0EECF5BA00A683E0 /* SecondViewController.m */; };
@@ -34,6 +34,8 @@
 		87FB22ED0EECFD4B007E55AA /* Brand.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FB22EA0EECFD4B007E55AA /* Brand.m */; };
 		87FB22EE0EECFD4B007E55AA /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FB22EC0EECFD4B007E55AA /* Config.m */; };
 		87FB22FF0EECFD84007E55AA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FB22FE0EECFD84007E55AA /* libsqlite3.dylib */; };
+		87FF244A0F58FDF10080A15F /* SortByFiberYarnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FF24490F58FDF10080A15F /* SortByFiberYarnCell.xib */; };
+		87FF24950F5901710080A15F /* SortByWeightYarnCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FF24940F5901710080A15F /* SortByWeightYarnCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +62,7 @@
 		870406620EF620DF00E08EFE /* EditYarnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditYarnViewController.h; sourceTree = "<group>"; };
 		870406630EF620DF00E08EFE /* EditYarnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditYarnViewController.m; sourceTree = "<group>"; };
 		870406650EF620F400E08EFE /* AddYarnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddYarnView.xib; sourceTree = "<group>"; };
-		878B070A0F57AF6200216095 /* SortedByBrandCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortedByBrandCell.xib; sourceTree = "<group>"; };
+		878B070A0F57AF6200216095 /* SortByBrandYarnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortByBrandYarnCell.xib; sourceTree = "<group>"; };
 		878B070F0F57B00D00216095 /* YarnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YarnCell.h; sourceTree = "<group>"; };
 		878B07100F57B00D00216095 /* YarnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YarnCell.m; sourceTree = "<group>"; };
 		878D522E0F4A97F3004D0339 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -79,6 +81,8 @@
 		87FB22EB0EECFD4B007E55AA /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		87FB22EC0EECFD4B007E55AA /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		87FB22FE0EECFD84007E55AA /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		87FF24490F58FDF10080A15F /* SortByFiberYarnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortByFiberYarnCell.xib; sourceTree = "<group>"; };
+		87FF24940F5901710080A15F /* SortByWeightYarnCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortByWeightYarnCell.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,7 +161,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				878B07090F57AF2300216095 /* YarnCells */,
+				87FF24460F58FD9F0080A15F /* YarnCells */,
 				878D522E0F4A97F3004D0339 /* icon.png */,
 				87F7DF830EF4EE9600EA0F9A /* NewYarnWizard */,
 				87FB22E10EECFC06007E55AA /* YarnPirateer.db */,
@@ -178,14 +182,6 @@
 				288765070DF74369002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		878B07090F57AF2300216095 /* YarnCells */ = {
-			isa = PBXGroup;
-			children = (
-				878B070A0F57AF6200216095 /* SortedByBrandCell.xib */,
-			);
-			name = YarnCells;
 			sourceTree = "<group>";
 		};
 		879E303E0EF77DF70075A817 /* NewYarnWizard */ = {
@@ -209,6 +205,16 @@
 				870406650EF620F400E08EFE /* AddYarnView.xib */,
 			);
 			name = NewYarnWizard;
+			sourceTree = "<group>";
+		};
+		87FF24460F58FD9F0080A15F /* YarnCells */ = {
+			isa = PBXGroup;
+			children = (
+				87FF24940F5901710080A15F /* SortByWeightYarnCell.xib */,
+				878B070A0F57AF6200216095 /* SortByBrandYarnCell.xib */,
+				87FF24490F58FDF10080A15F /* SortByFiberYarnCell.xib */,
+			);
+			name = YarnCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +267,9 @@
 				870405690EF4F9D300E08EFE /* SelectWeightView.xib in Resources */,
 				870406660EF620F400E08EFE /* AddYarnView.xib in Resources */,
 				878D522F0F4A97F3004D0339 /* icon.png in Resources */,
-				878B070B0F57AF6200216095 /* SortedByBrandCell.xib in Resources */,
+				878B070B0F57AF6200216095 /* SortByBrandYarnCell.xib in Resources */,
+				87FF244A0F58FDF10080A15F /* SortByFiberYarnCell.xib in Resources */,
+				87FF24950F5901710080A15F /* SortByWeightYarnCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

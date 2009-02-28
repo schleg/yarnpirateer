@@ -138,7 +138,7 @@ int alertViewIndex = -1;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
 		Yarn *yarn = ((Yarn *)[self.yarns objectAtIndex:indexPath.row]);
-		cell = [[YarnCell yarnCellWithYarn:yarn] cell];
+		cell = [[YarnCell yarnCellWithYarn:yarn nibName:@"SortByWeightYarnCell"] cell];
     }
 	
     return cell;
