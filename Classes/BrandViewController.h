@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  BrandViewController.h
 //  YarnPirateer
 //
 //  Created by Tyler Schlegel on 12/7/08.
@@ -10,7 +10,7 @@
 #import "Yarn.h"
 #import "Brand.h"
 
-@interface SecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate> {
+@interface BrandViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate> {
 	UITableView *tableView;
 	NSMutableArray *brands;
 	IBOutlet UIBarButtonItem *addButton;

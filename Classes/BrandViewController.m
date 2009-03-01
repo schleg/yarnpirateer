@@ -1,19 +1,19 @@
 //
-//  SecondViewController.m
+//  BrandViewController.m
 //  YarnPirateer
 //
 //  Created by Tyler Schlegel on 12/7/08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "BrandViewController.h"
 
 @interface UIAlertView (extended)
 - (UITextField *)textFieldAtIndex:(int)index;
 - (void)addTextFieldWithValue:(NSString *)value label:(NSString *)label;
 @end
 
-@implementation SecondViewController
+@implementation BrandViewController
 
 @synthesize tableView, brands, addButton, editButton, deleteButton;
 
