@@ -103,6 +103,9 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if(buttonIndex == 2) {
+		return;
+	}
 	switch (actionSheetIndex) {
 		case 1:
 		{
@@ -170,17 +173,55 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 	[sheet release];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	if(yarnCellNibName == @"SortByBrandYarnCell")
+	{
+		return [[Brand all] count];
+	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
+		return [[Weight all] count];
+	} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+	}
+	return [self.yarns count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	if(yarnCellNibName == @"SortByBrandYarnCell")
+	{
+		return [[[Brand all] objectAtIndex:section] friendlyName];
+	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
+		return [[[Weight all] objectAtIndex:section] friendlyName];
+	} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+	}		
+	return @"";
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.yarns count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSPredicate *filter;
+	if(yarnCellNibName == @"SortByBrandYarnCell")
+	{
+		Brand *brand = [[Brand all] objectAtIndex:indexPath.section];
+		filter = [NSPredicate predicateWithFormat:@"brand.name == %@", brand.name];
+	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
+		Weight *weight = [[Weight all] objectAtIndex:indexPath.section];
+		filter = [NSPredicate predicateWithFormat:@"weight.name == %@", weight.name];
+	} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+	}
+	
+	NSArray *yarnsBySection = [self.yarns filteredArrayUsingPredicate:filter];
 	static NSString *cellId = @"yarn-cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-		Yarn *yarn = ((Yarn *)[self.yarns objectAtIndex:indexPath.row]);
-		cell = [[YarnCell yarnCellWithYarn:yarn nibName:yarnCellNibName] cell];
-    }
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+	if ([yarnsBySection count] > 0) {
+		if (cell == nil) {
+			Yarn *yarn = ((Yarn *)[yarnsBySection objectAtIndex:indexPath.row]);
+			cell = [[YarnCell yarnCellWithYarn:yarn nibName:yarnCellNibName] cell];
+		}
+	} else {
+		cell = [[UITableViewCell alloc] init];
+	}
 	
     return cell;
 	
