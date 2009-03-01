@@ -1,15 +1,15 @@
 //
-//  FirstViewController.m
+//  YarnViewController.m
 //  YarnPirateer
 //
 //  Created by Tyler Schlegel on 12/7/08.
 //  Copyright __MyCompanyName__ 2008. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "YarnViewController.h"
 #import "YarnCell.h"
 
-@implementation FirstViewController
+@implementation YarnViewController
 
 @synthesize tableView, yarns, addButton, editButton;
 

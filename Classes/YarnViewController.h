@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  YarnViewController.h
 //  YarnPirateer
 //
 //  Created by Tyler Schlegel on 12/7/08.
@@ -10,7 +10,7 @@
 #import "Yarn.h"
 #import "YarnPirateerAppDelegate.h"
 
-@interface FirstViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate> {
+@interface YarnViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate> {
 	UITableView *tableView;
 	NSMutableArray *yarns;
 	IBOutlet UIBarButtonItem *addButton;
