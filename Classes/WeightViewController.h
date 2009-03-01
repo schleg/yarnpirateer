@@ -1,5 +1,5 @@
 //
-//  ThirdViewController.h
+//  WeightViewController.h
 //  YarnPirateer
 //
 //  Created by Tyler Schlegel on 12/8/08.
@@ -10,7 +10,7 @@
 #import "Yarn.h"
 #import "Weight.h"
 
-@interface ThirdViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface WeightViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	UITableView *tableView;
 	NSMutableArray *weights;
 	IBOutlet UIBarButtonItem *addButton;

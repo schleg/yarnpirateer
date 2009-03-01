@@ -1,19 +1,19 @@
 //
-//  ThirdViewController.m
+//  WeightViewController.m
 //  YarnPirateer
 //
 //  Created by Tyler Schlegel on 12/8/08.
 //  Copyright 2008 __MyCompanyName__. All rights reserved.
 //
 
-#import "ThirdViewController.h"
+#import "WeightViewController.h"
 
 @interface UIAlertView (extended)
 - (UITextField *)textFieldAtIndex:(int)index;
 - (void)addTextFieldWithValue:(NSString *)value label:(NSString *)label;
 @end
 
-@implementation ThirdViewController
+@implementation WeightViewController
 
 @synthesize tableView, weights, addButton, editButton, deleteButton;
 
