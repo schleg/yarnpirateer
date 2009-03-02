@@ -174,8 +174,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	if(yarnCellNibName == @"SortByBrandYarnCell")
-	{
+	if(yarnCellNibName == @"SortByBrandYarnCell") {
 		return [[Brand all] count];
 	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
 		return [[Weight all] count];
@@ -185,8 +184,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	if(yarnCellNibName == @"SortByBrandYarnCell")
-	{
+	if(yarnCellNibName == @"SortByBrandYarnCell") {
 		return [[[Brand all] objectAtIndex:section] friendlyName];
 	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
 		return [[[Weight all] objectAtIndex:section] friendlyName];
@@ -196,13 +194,22 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.yarns count];
+	NSPredicate *filter;
+	if(yarnCellNibName == @"SortByBrandYarnCell") {
+		Brand *brand = [[Brand all] objectAtIndex:section];
+		filter = [NSPredicate predicateWithFormat:@"brand.name == %@", brand.name];
+	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
+		Weight *weight = [[Weight all] objectAtIndex:section];
+		filter = [NSPredicate predicateWithFormat:@"weight.name == %@", weight.name];
+	} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+	}
+	NSArray *yarnsBySection = [self.yarns filteredArrayUsingPredicate:filter];
+	return [yarnsBySection count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSPredicate *filter;
-	if(yarnCellNibName == @"SortByBrandYarnCell")
-	{
+	if(yarnCellNibName == @"SortByBrandYarnCell") {
 		Brand *brand = [[Brand all] objectAtIndex:indexPath.section];
 		filter = [NSPredicate predicateWithFormat:@"brand.name == %@", brand.name];
 	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
@@ -210,7 +217,6 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 		filter = [NSPredicate predicateWithFormat:@"weight.name == %@", weight.name];
 	} else if (yarnCellNibName == @"SortByFiberYarnCell") {
 	}
-	
 	NSArray *yarnsBySection = [self.yarns filteredArrayUsingPredicate:filter];
 	static NSString *cellId = @"yarn-cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -222,9 +228,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 	} else {
 		cell = [[UITableViewCell alloc] init];
 	}
-	
     return cell;
-	
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

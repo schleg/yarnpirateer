@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <sqlite3.h>
+#import "Config.h"
 
 @interface SQLiteHelper : NSObject {
 	NSString *databaseName;
 }
 
 - (NSString *)databasePath;
+- (BOOL)insertUsingSQLTemplate:(const char *)sql andValues:(NSArray *)values;
 
 @property (nonatomic, retain) NSString *databaseName;
 

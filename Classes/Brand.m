@@ -37,31 +37,7 @@
 }
 
 - (BOOL)create {
-	BOOL retval = NO;
-	sqlite3 *database;
-	NSString *databasePath = [[_slh databasePath] retain];
-	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		//NSLog(@"Opened database: %@", databasePath);
-		sqlite3_stmt *insertStatement;
-		const char *sql = "INSERT INTO brand (name, friendlyName) VALUES (?,?)";
-		int prepared = sqlite3_prepare(database, sql, -1, &insertStatement, NULL);
-		if(SQLITE_OK == prepared) {
-			sqlite3_bind_text(insertStatement, 1, [name UTF8String], -1, SQLITE_TRANSIENT);
-			sqlite3_bind_text(insertStatement, 2, [friendlyName UTF8String], -1, SQLITE_TRANSIENT);
-			if(SQLITE_DONE != sqlite3_step(insertStatement))
-			{
-				NSAssert1(0, @"Failed to insert: %s", sqlite3_errmsg(database));
-			}
-
-			retval = sqlite3_finalize(insertStatement) == 0;
-
-		} else {
-			NSAssert1(0, @"Failed to prepare: %s", sqlite3_errmsg(database));
-		}
-	}
-	sqlite3_close(database);
-	//NSLog(@"Closed database: %@", databasePath);
-	[databasePath release];
+	BOOL retval = [_slh insertUsingSQLTemplate:"INSERT INTO brand (name, friendlyName) VALUES (?,?)" andValues:[NSArray arrayWithObjects:name, friendlyName, nil]];
 	return retval;
 }
 
