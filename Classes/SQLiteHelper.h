@@ -17,6 +17,7 @@
 - (NSString *)databasePath;
 - (BOOL)insertUsingSQLTemplate:(const char *)sql andValues:(NSArray *)values;
 - (BOOL)updateUsingSQLTemplate:(const char *)sql andValues:(NSArray *)values;
+- (BOOL)deleteUsingSQLTemplate:(const char *)sql andValues:(NSArray *)values;
 
 @property (nonatomic, retain) NSString *databaseName;
 

@@ -153,27 +153,7 @@
 }
 
 - (BOOL)delete {
-	BOOL retval = NO;
-	sqlite3 *database;
-	NSString *databasePath = [[_slh databasePath] retain];
-	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		//NSLog(@"Opened database: %@", databasePath);
-		sqlite3_stmt *deleteStatement;
-		const char *sql = "DELETE FROM brand WHERE name=?";
-		if(sqlite3_prepare(database, sql, -1, &deleteStatement, NULL) == SQLITE_OK) {
-			sqlite3_bind_text(deleteStatement, 1, [name UTF8String], -1, SQLITE_TRANSIENT);
-			if(SQLITE_DONE != sqlite3_step(deleteStatement))
-			{
-				NSAssert1(0, @"Failed to delete: %s", sqlite3_errmsg(database));
-			}
-
-			retval = sqlite3_finalize(deleteStatement) == 0;
-
-		}	
-	}
-	sqlite3_close(database);
-	//NSLog(@"Closed database: %@", databasePath);
-	[databasePath release];
+	BOOL retval = [_slh deleteUsingSQLTemplate:"DELETE FROM brand WHERE name=?" andValues:[NSArray arrayWithObjects:name,nil]];
 	return retval;
 }
 
