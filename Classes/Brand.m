@@ -148,31 +148,7 @@
 }
 
 - (BOOL)update {
-	BOOL retval = NO;
-	sqlite3 *database;
-	NSString *databasePath = [[_slh databasePath] retain];
-	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
-		//NSLog(@"Opened database: %@", databasePath);
-		sqlite3_stmt *updateStatement;
-		const char *sql = "UPDATE brand SET friendlyName =? WHERE name=?";
-		int prepared = sqlite3_prepare(database, sql, -1, &updateStatement, NULL);
-		if(SQLITE_OK == prepared) {
-			sqlite3_bind_text(updateStatement, 1, [friendlyName UTF8String], -1, SQLITE_TRANSIENT);
-			sqlite3_bind_text(updateStatement, 2, [name UTF8String], -1, SQLITE_TRANSIENT);
-			if(SQLITE_DONE != sqlite3_step(updateStatement))
-			{
-				NSAssert1(0, @"Failed to update: %s", sqlite3_errmsg(database));
-			}
-
-			retval = sqlite3_finalize(updateStatement) == 0;
-
-		} else {
-			NSAssert1(0, @"Failed to prepare: %s", sqlite3_errmsg(database));
-		}
-	}
-	sqlite3_close(database);
-	//NSLog(@"Closed database: %@", databasePath);
-	[databasePath release];
+	BOOL retval = [_slh updateUsingSQLTemplate:"UPDATE brand SET friendlyName =? WHERE name=?" andValues:[NSArray arrayWithObjects:friendlyName, name, nil]];
 	return retval;
 }
 
