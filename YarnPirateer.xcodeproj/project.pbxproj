@@ -27,6 +27,8 @@
 		87B6E6F10F5B2B8900D0F1C4 /* YarnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B6E6F00F5B2B8900D0F1C4 /* YarnViewController.m */; };
 		87B6E6F70F5B2C2100D0F1C4 /* BrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B6E6F60F5B2C2100D0F1C4 /* BrandViewController.m */; };
 		87B6E7090F5B2C8000D0F1C4 /* WeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B6E7080F5B2C8000D0F1C4 /* WeightViewController.m */; };
+		87B6E84F0F5CF67900D0F1C4 /* YarnDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B6E84E0F5CF67900D0F1C4 /* YarnDetailViewController.m */; };
+		87B6E8510F5CF69300D0F1C4 /* YarnDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B6E8500F5CF69300D0F1C4 /* YarnDetailView.xib */; };
 		87F7DF850EF4EEBE00EA0F9A /* SelectBrandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F7DF840EF4EEBE00EA0F9A /* SelectBrandView.xib */; };
 		87F7DF880EF4EED100EA0F9A /* SelectBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F7DF870EF4EED100EA0F9A /* SelectBrandViewController.m */; };
 		87FB22E30EECFC06007E55AA /* YarnPirateer.db in Resources */ = {isa = PBXBuildFile; fileRef = 87FB22E10EECFC06007E55AA /* YarnPirateer.db */; };
@@ -71,6 +73,9 @@
 		87B6E6F60F5B2C2100D0F1C4 /* BrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandViewController.m; sourceTree = "<group>"; };
 		87B6E7070F5B2C8000D0F1C4 /* WeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightViewController.h; sourceTree = "<group>"; };
 		87B6E7080F5B2C8000D0F1C4 /* WeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightViewController.m; sourceTree = "<group>"; };
+		87B6E84D0F5CF67900D0F1C4 /* YarnDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YarnDetailViewController.h; sourceTree = "<group>"; };
+		87B6E84E0F5CF67900D0F1C4 /* YarnDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YarnDetailViewController.m; sourceTree = "<group>"; };
+		87B6E8500F5CF69300D0F1C4 /* YarnDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YarnDetailView.xib; sourceTree = "<group>"; };
 		87F7DF840EF4EEBE00EA0F9A /* SelectBrandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectBrandView.xib; sourceTree = "<group>"; };
 		87F7DF860EF4EED100EA0F9A /* SelectBrandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBrandViewController.h; sourceTree = "<group>"; };
 		87F7DF870EF4EED100EA0F9A /* SelectBrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBrandViewController.m; sourceTree = "<group>"; };
@@ -145,6 +150,8 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				87B6E84D0F5CF67900D0F1C4 /* YarnDetailViewController.h */,
+				87B6E84E0F5CF67900D0F1C4 /* YarnDetailViewController.m */,
 			);
 			name = YarnPirateer;
 			sourceTree = "<group>";
@@ -169,6 +176,7 @@
 				87A6EC1A0EECFA7100A683E0 /* YarnPirateerTabBarIcon.png */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				87B6E8500F5CF69300D0F1C4 /* YarnDetailView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 				878B070B0F57AF6200216095 /* SortByBrandYarnCell.xib in Resources */,
 				87FF244A0F58FDF10080A15F /* SortByFiberYarnCell.xib in Resources */,
 				87FF24950F5901710080A15F /* SortByWeightYarnCell.xib in Resources */,
+				87B6E8510F5CF69300D0F1C4 /* YarnDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +303,7 @@
 				87B6E6F10F5B2B8900D0F1C4 /* YarnViewController.m in Sources */,
 				87B6E6F70F5B2C2100D0F1C4 /* BrandViewController.m in Sources */,
 				87B6E7090F5B2C8000D0F1C4 /* WeightViewController.m in Sources */,
+				87B6E84F0F5CF67900D0F1C4 /* YarnDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

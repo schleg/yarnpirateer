@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Yarn.h"
 #import "YarnPirateerAppDelegate.h"
+#import "YarnDetailViewController.h"
 
-@interface YarnViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate> {
+@interface YarnViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate, UINavigationControllerDelegate> {
+	IBOutlet UINavigationController *navigationController;
 	UITableView *tableView;
 	NSMutableArray *yarns;
 	IBOutlet UIBarButtonItem *addButton;
@@ -18,6 +20,7 @@
 	NSMutableArray *yarnCells;
 }
 
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *yarns;
 @property (nonatomic, retain) UIBarButtonItem *addButton;
