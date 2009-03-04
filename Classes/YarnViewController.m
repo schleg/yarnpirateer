@@ -11,7 +11,7 @@
 
 @implementation YarnViewController
 
-@synthesize tableView, yarns, addButton, editButton, navigationController;
+@synthesize tableView, yarns, editButton, navigationController;
 
 int alertViewIndex = -1;
 int actionSheetIndex = -1;
@@ -35,7 +35,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 	if([tableView isEditing]) {
 		[tableView setEditing:NO animated:YES];
 		[editButton setStyle:UIBarButtonItemStyleBordered];
-		editButton.title = @"Remove";
+		editButton.title = @"Edit";
 	} else {
 		[tableView setEditing:YES animated:YES];
 		[editButton setStyle:UIBarButtonItemStyleDone];
@@ -48,10 +48,6 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 	UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Sort By Brand",@"Sort By Weight",@"Sort By Fiber",nil];
 	[sheet showInView:self.view];
 	[sheet release];	
-}
-
-- (IBAction)add {
-	[self.tabBarController setSelectedIndex:3];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -167,10 +163,6 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	//actionSheetIndex = 1;
-	//UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Change Name",@"Change Quantity",nil];
-	//[sheet showInView:self.view];
-	//[sheet release];
 	YarnDetailViewController *yarnDetailView = [[YarnDetailViewController alloc] initWithNibName:@"YarnDetailView" bundle:nil];
 	Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
 	yarnDetailView.navigationItem.title = yarn.name;
@@ -262,7 +254,6 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 }
 
 - (void)dealloc {
-	[addButton release];
 	[editButton release];
 	[yarns release];
 	[tableView release];

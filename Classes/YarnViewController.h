@@ -15,7 +15,6 @@
 	IBOutlet UINavigationController *navigationController;
 	UITableView *tableView;
 	NSMutableArray *yarns;
-	IBOutlet UIBarButtonItem *addButton;
 	IBOutlet UIBarButtonItem *editButton;
 	NSMutableArray *yarnCells;
 }
@@ -23,10 +22,8 @@
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *yarns;
-@property (nonatomic, retain) UIBarButtonItem *addButton;
 @property (nonatomic, retain) UIBarButtonItem *editButton;
 
-- (IBAction)add;
 - (IBAction)edit;
 - (IBAction)sort;
 
