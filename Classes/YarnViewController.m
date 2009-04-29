@@ -35,7 +35,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 	if([tableView isEditing]) {
 		[tableView setEditing:NO animated:YES];
 		[editButton setStyle:UIBarButtonItemStyleBordered];
-		editButton.title = @"Edit";
+		editButton.title = @"Delete";
 	} else {
 		[tableView setEditing:YES animated:YES];
 		[editButton setStyle:UIBarButtonItemStyleDone];
@@ -73,7 +73,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 			switch (buttonIndex) {
 				case 1:
 				{
-					yarn.quantity = atoi([textField.text UTF8String]);
+					yarn.quantity = atof([textField.text UTF8String]);
 					[yarn update];
 					break;
 				}
@@ -122,7 +122,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 					Yarn *yarn = [self.yarns objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
 					NSString *title = [NSString stringWithFormat:@"Quantity for \"%@\"", yarn.name];
 					UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Save",nil];
-					[alertView addTextFieldWithValue:[NSString stringWithFormat:@"%d",yarn.quantity] label:@"0"];
+					[alertView addTextFieldWithValue:[NSString stringWithFormat:@"%f",yarn.quantity] label:@"0"];
 					[[alertView textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
 					alertViewIndex = 1;
 					[alertView show];
@@ -190,30 +190,42 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSPredicate *filter;
-	if(yarnCellNibName == @"SortByBrandYarnCell") {
-		Brand *brand = [[Brand all] objectAtIndex:section];
-		filter = [NSPredicate predicateWithFormat:@"brand.name == %@", brand.name];
-	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
-		Weight *weight = [[Weight all] objectAtIndex:section];
-		filter = [NSPredicate predicateWithFormat:@"weight.name == %@", weight.name];
-	} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+	NSMutableArray *yarnsBySection = [[NSMutableArray alloc] init];
+	for (int i=0;i<[self.yarns count];i++) {
+		Yarn *yarn = [[self yarns] objectAtIndex:i];
+		if(yarnCellNibName == @"SortByBrandYarnCell") {
+			Brand *brand = [[Brand all] objectAtIndex:section];
+			if([[brand name] isEqualToString:[[yarn brand] name]]) {
+				[yarnsBySection addObject:yarn];
+			}
+		} else if (yarnCellNibName == @"SortByWeightYarnCell") {
+			Weight *weight = [[Weight all] objectAtIndex:section];
+			if([[weight name] isEqualToString:[[yarn weight] name]]) {
+				[yarnsBySection addObject:yarn];
+			}
+		} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+		}
 	}
-	NSArray *yarnsBySection = [self.yarns filteredArrayUsingPredicate:filter];
 	return [yarnsBySection count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSPredicate *filter;
-	if(yarnCellNibName == @"SortByBrandYarnCell") {
-		Brand *brand = [[Brand all] objectAtIndex:indexPath.section];
-		filter = [NSPredicate predicateWithFormat:@"brand.name == %@", brand.name];
-	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
-		Weight *weight = [[Weight all] objectAtIndex:indexPath.section];
-		filter = [NSPredicate predicateWithFormat:@"weight.name == %@", weight.name];
-	} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+	NSMutableArray *yarnsBySection = [[NSMutableArray alloc] init];
+	for (int i=0;i<[self.yarns count];i++) {
+		Yarn *yarn = [[self yarns] objectAtIndex:i];
+		if(yarnCellNibName == @"SortByBrandYarnCell") {
+			Brand *brand = [[Brand all] objectAtIndex:indexPath.section];
+			if([[brand name] isEqualToString:[[yarn brand] name]]) {
+				[yarnsBySection addObject:yarn];
+			}
+		} else if (yarnCellNibName == @"SortByWeightYarnCell") {
+			Weight *weight = [[Weight all] objectAtIndex:indexPath.section];
+			if([[weight name] isEqualToString:[[yarn weight] name]]) {
+				[yarnsBySection addObject:yarn];
+			}
+		} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+		}
 	}
-	NSArray *yarnsBySection = [self.yarns filteredArrayUsingPredicate:filter];
 	static NSString *cellId = @"yarn-cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
 	if ([yarnsBySection count] > 0) {

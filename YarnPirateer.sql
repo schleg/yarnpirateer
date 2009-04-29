@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS brand (name TEXT, friendlyName TEXT, selected INTEGER);
 CREATE TABLE IF NOT EXISTS weight (name TEXT, friendlyName TEXT, selected INTEGER);
-CREATE TABLE IF NOT EXISTS yarn (pk INTEGER PRIMARY KEY, brandName TEXT, weightName TEXT, name TEXT, quantity INTEGER, description TEXT);
+CREATE TABLE IF NOT EXISTS yarn (pk INTEGER PRIMARY KEY, brandName TEXT, weightName TEXT, name TEXT, quantity DECIMAL, quantity_type TEXT, description TEXT);
 
 --INSERT INTO weight (name, friendlyName) VALUES ('baby', 'Baby');
 INSERT INTO weight (name, friendlyName) VALUES ('fingering', 'Fingering');

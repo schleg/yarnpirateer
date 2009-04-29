@@ -10,7 +10,7 @@
 
 @implementation Yarn
 
-@synthesize brand, weight, name, description, quantity;
+@synthesize brand, weight, name, description, quantity, quantityType;
 
 - (id)initWithPK:(int)_pk {
 	if(nil != [super init]) {
@@ -35,14 +35,15 @@
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *insertStatement;
-		const char *sql = "INSERT INTO yarn (brandName, weightName, name, description, quantity) VALUES (?,?,?,?,?)";
+		const char *sql = "INSERT INTO yarn (brandName, weightName, name, description, quantity, quantity_type) VALUES (?,?,?,?,?,?)";
 		int prepared = sqlite3_prepare(database, sql, -1, &insertStatement, NULL);
 		if(SQLITE_OK == prepared) {
 			sqlite3_bind_text(insertStatement, 1, [[brand name] UTF8String], -1, SQLITE_TRANSIENT);
 			sqlite3_bind_text(insertStatement, 2, [[weight name] UTF8String], -1, SQLITE_TRANSIENT);
 			sqlite3_bind_text(insertStatement, 3, [name UTF8String], -1, SQLITE_TRANSIENT);
 			sqlite3_bind_text(insertStatement, 4, [description UTF8String], -1, SQLITE_TRANSIENT);
-			sqlite3_bind_int(insertStatement, 5, quantity);
+			sqlite3_bind_double(insertStatement, 5, quantity);
+			sqlite3_bind_text(insertStatement, 6, [quantityType UTF8String], -1, SQLITE_TRANSIENT);
 			if(SQLITE_DONE != sqlite3_step(insertStatement))
 			{
 				NSAssert1(0, @"Failed to insert: %s", sqlite3_errmsg(database));
@@ -167,7 +168,7 @@
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *selectStatement;
-		const char *sql = "SELECT brandName, weightName, name, description, quantity FROM yarn WHERE pk =?";
+		const char *sql = "SELECT brandName, weightName, name, description, quantity, quantity_type FROM yarn WHERE pk =?";
 		int prepared = sqlite3_prepare(database, sql, -1, &selectStatement, NULL);
 		if(SQLITE_OK == prepared) {
 			sqlite3_bind_int(selectStatement, 1, pk);
@@ -191,7 +192,10 @@
 			description = (descriptionResult) ? [[NSString stringWithUTF8String:descriptionResult] retain] : @"";
 
 			const char *quantityResult = (char *)sqlite3_column_text(selectStatement, 4);
-			quantity = (quantityResult) ? atoi(quantityResult) : 0;
+			quantity = (quantityResult) ? atof(quantityResult) : 0;
+			
+			const char *quantityTypeResult = (char *)sqlite3_column_text(selectStatement, 5);
+			quantityType = (quantityTypeResult) ? [[NSString stringWithUTF8String:quantityTypeResult] retain] : @"";
 			
 			sqlite3_finalize(selectStatement);
 			
@@ -214,7 +218,7 @@
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *updateStatement;
-		const char *sql = "UPDATE yarn SET brandName =?, weightName =?, name =?, description =?, quantity =? WHERE pk=?";
+		const char *sql = "UPDATE yarn SET brandName =?, weightName =?, name =?, description =?, quantity =?, quantity_type =? WHERE pk=?";
 		int prepared = sqlite3_prepare(database, sql, -1, &updateStatement, NULL);
 		if(SQLITE_OK == prepared) {
 			sqlite3_bind_text(updateStatement, 1, [[brand name] UTF8String], -1, SQLITE_TRANSIENT);
@@ -222,7 +226,8 @@
 			sqlite3_bind_text(updateStatement, 3, [name UTF8String], -1, SQLITE_TRANSIENT);
 			sqlite3_bind_text(updateStatement, 4, [description UTF8String], -1, SQLITE_TRANSIENT);
 			sqlite3_bind_int(updateStatement, 5, quantity);
-			sqlite3_bind_int(updateStatement, 6, pk);
+			sqlite3_bind_text(updateStatement, 6, [quantityType UTF8String], -1, SQLITE_TRANSIENT);
+			sqlite3_bind_int(updateStatement, 7, pk);
 			if(SQLITE_DONE != sqlite3_step(updateStatement))
 			{
 				NSAssert1(0, @"Failed to update: %s", sqlite3_errmsg(database));
@@ -270,6 +275,7 @@
 	[description release];
 	[brand release];
 	[weight release];
+	[quantityType release];
 	[_slh release];
 	[super dealloc];
 }

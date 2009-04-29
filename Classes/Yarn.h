@@ -15,7 +15,8 @@
 	Weight *weight;
 	NSString *name;
 	NSString *description;
-	int quantity;
+	float quantity;
+	NSString *quantityType;
 	SQLiteHelper *_slh;
 	int pk;
 }
@@ -24,7 +25,8 @@
 @property (nonatomic, retain) Weight *weight;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *description;
-@property (nonatomic, readwrite) int quantity;
+@property (nonatomic, readwrite) float quantity;
+@property (nonatomic, retain) NSString *quantityType;
 
 - (id)initWithPK:(int)_pk;
 

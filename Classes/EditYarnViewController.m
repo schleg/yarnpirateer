@@ -18,9 +18,11 @@
 			yarnNameTextField, 
 			quantityTextField, 
 			yarnNameLabel, 
-			quantityLabel, 
+			quantityLabel,
+			quantityTypeLabel,
 			brandNameLabel, 
-			weightNameLabel;
+			weightNameLabel,
+			selectedQuantityType;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,11 +53,61 @@
 	weightNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 }
 
+- (void)updateQuantityTypeLabelFrom:(float)quantity {
+	BOOL usePlural = quantity == 0 || quantity > 1;
+	if(selectedQuantityType == @"yard")
+	{
+		quantityTypeLabel.text = usePlural ? @"Yards" : @"Yard";
+	}
+	else if(selectedQuantityType == @"skein")
+	{
+		quantityTypeLabel.text = usePlural ? @"Skeins" : @"Skein";
+	}
+	else if(selectedQuantityType == @"ball")
+	{
+		quantityTypeLabel.text = usePlural ? @"Balls" : @"Ball";
+	}	
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	switch (buttonIndex) {
+		case 0:
+		{
+			selectedQuantityType = @"yard";
+			break;
+		}
+		case 1:
+		{
+			selectedQuantityType = @"skein";
+			break;
+		}
+		case 2:
+		{
+			selectedQuantityType = @"ball";
+			break;
+		}
+		default:
+			quantityTypeLabel.text = @"";
+			break;
+	}
+	float quantity = (float)[[quantityTextField text] floatValue];
+	[self updateQuantityTypeLabelFrom:quantity];
+}
+
+- (IBAction)chooseQuantityType:(id)sender {
+	UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Yards",@"Skeins",@"Balls",nil];
+	[sheet showInView:self.view];
+	[sheet release];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {	
 	[textField resignFirstResponder];
 	if(textField.keyboardType == UIKeyboardTypeNumbersAndPunctuation) {
-		NSInteger *quantity = (NSInteger *)[[textField text] integerValue];
-		textField.text = [NSString stringWithFormat:@"%d", quantity];
+		float quantity = (float)[[textField text] floatValue];
+		BOOL isFloat = abs(quantity) < quantity;
+		NSString* numberFormat = isFloat ? [NSString stringWithFormat:@"%.2f", (float)[[textField text] floatValue]] : [NSString stringWithFormat:@"%d", (int)[[textField text] integerValue]];
+		textField.text = [NSString stringWithFormat:numberFormat, quantity];
+		[self updateQuantityTypeLabelFrom:quantity];
 	}
 	return YES;
 }
@@ -95,7 +147,8 @@
 	
 	yarn.weight = selectedWeight;
 	[weightUUID release];
-	yarn.quantity = atoi([quantityTextField.text UTF8String]);
+	yarn.quantity = atof([quantityTextField.text UTF8String]);
+	yarn.quantityType = selectedQuantityType;
 	[yarn create];
 	[yarn release];
 	[self.tabBarController setSelectedIndex:0];
@@ -119,10 +172,12 @@
 	selectedBrand = nil;
 	[selectedBrand release];
 	[quantityTextField release];
+	[quantityTypeLabel release];
 	[yarnNameTextField release];
 	[saveYarnButton release];
 	[selectedBrandLabel release];
 	[selectedWeightLabel release];
+	[selectedQuantityType release];
     [super dealloc];
 }
 

@@ -315,6 +315,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tyler Schlegel";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tyler Schlegel";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -322,7 +323,8 @@
 				GCC_PREFIX_HEADER = YarnPirateer_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = "Yarn Pirateer";
-				PROVISIONING_PROFILE = "5DC3ECE6-89BE-4B9D-9479-E2F5DC443352";
+				PROVISIONING_PROFILE = "B20430E0-17E0-45FD-98E4-C87AF2E0EFC2";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B20430E0-17E0-45FD-98E4-C87AF2E0EFC2";
 			};
 			name = Debug;
 		};
