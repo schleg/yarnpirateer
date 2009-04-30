@@ -250,7 +250,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 130.0f;
+	return 140.0f;
 }
 
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -267,7 +267,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 	yarns = nil;
 	yarnCells = nil;
 	[tableView reloadData];
-	UINavigationController *newYarnNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:3];
+	UINavigationController *newYarnNavController = (UINavigationController *)[self.tabBarController.viewControllers objectAtIndex:4];
 	[newYarnNavController popToRootViewControllerAnimated:NO];
 }
 
