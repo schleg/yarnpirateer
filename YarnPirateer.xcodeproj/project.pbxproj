@@ -15,6 +15,8 @@
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
 		2F7774A20FA96CF2009F4ADF /* FiberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7774A10FA96CF2009F4ADF /* FiberViewController.m */; };
 		2F7774A70FA96D79009F4ADF /* Fiber.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7774A60FA96D79009F4ADF /* Fiber.m */; };
+		2F77758B0FA9882D009F4ADF /* SelectFiberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F77758A0FA9882D009F4ADF /* SelectFiberViewController.m */; };
+		2F7775B70FA98AAC009F4ADF /* SelectFiberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7775B60FA98AAC009F4ADF /* SelectFiberView.xib */; };
 		870007270EED10A600671713 /* Weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 870007260EED10A600671713 /* Weight.m */; };
 		870007600EED11F300671713 /* Yarn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8700075F0EED11F300671713 /* Yarn.m */; };
 		870405690EF4F9D300E08EFE /* SelectWeightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870405680EF4F9D300E08EFE /* SelectWeightView.xib */; };
@@ -56,6 +58,9 @@
 		2F7774A10FA96CF2009F4ADF /* FiberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiberViewController.m; sourceTree = "<group>"; };
 		2F7774A50FA96D79009F4ADF /* Fiber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fiber.h; sourceTree = "<group>"; };
 		2F7774A60FA96D79009F4ADF /* Fiber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fiber.m; sourceTree = "<group>"; };
+		2F7775890FA9882D009F4ADF /* SelectFiberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFiberViewController.h; sourceTree = "<group>"; };
+		2F77758A0FA9882D009F4ADF /* SelectFiberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFiberViewController.m; sourceTree = "<group>"; };
+		2F7775B60FA98AAC009F4ADF /* SelectFiberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectFiberView.xib; sourceTree = "<group>"; };
 		870007250EED10A600671713 /* Weight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weight.h; sourceTree = "<group>"; };
 		870007260EED10A600671713 /* Weight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weight.m; sourceTree = "<group>"; };
 		8700075E0EED11F300671713 /* Yarn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yarn.h; sourceTree = "<group>"; };
@@ -205,6 +210,8 @@
 		879E303E0EF77DF70075A817 /* NewYarnWizard */ = {
 			isa = PBXGroup;
 			children = (
+				2F7775890FA9882D009F4ADF /* SelectFiberViewController.h */,
+				2F77758A0FA9882D009F4ADF /* SelectFiberViewController.m */,
 				87F7DF860EF4EED100EA0F9A /* SelectBrandViewController.h */,
 				87F7DF870EF4EED100EA0F9A /* SelectBrandViewController.m */,
 				870405F00EF6199F00E08EFE /* SelectWeightViewController.h */,
@@ -218,6 +225,7 @@
 		87F7DF830EF4EE9600EA0F9A /* NewYarnWizard */ = {
 			isa = PBXGroup;
 			children = (
+				2F7775B60FA98AAC009F4ADF /* SelectFiberView.xib */,
 				87F7DF840EF4EEBE00EA0F9A /* SelectBrandView.xib */,
 				870405680EF4F9D300E08EFE /* SelectWeightView.xib */,
 				870406650EF620F400E08EFE /* AddYarnView.xib */,
@@ -289,6 +297,7 @@
 				87FF244A0F58FDF10080A15F /* SortByFiberYarnCell.xib in Resources */,
 				87FF24950F5901710080A15F /* SortByWeightYarnCell.xib in Resources */,
 				87B6E8510F5CF69300D0F1C4 /* YarnDetailView.xib in Resources */,
+				2F7775B70FA98AAC009F4ADF /* SelectFiberView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +325,7 @@
 				87B6E84F0F5CF67900D0F1C4 /* YarnDetailViewController.m in Sources */,
 				2F7774A20FA96CF2009F4ADF /* FiberViewController.m in Sources */,
 				2F7774A70FA96D79009F4ADF /* Fiber.m in Sources */,
+				2F77758B0FA9882D009F4ADF /* SelectFiberViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

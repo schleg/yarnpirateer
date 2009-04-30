@@ -11,7 +11,8 @@
 @implementation EditYarnViewController
 
 @synthesize selectedBrand, 
-			selectedWeight, 
+			selectedWeight,
+			selectedFiber,
 			selectedBrandLabel, 
 			selectedWeightLabel, 
 			saveYarnButton, 
@@ -22,6 +23,7 @@
 			quantityTypeLabel,
 			brandNameLabel, 
 			weightNameLabel,
+			fiberNameLabel,
 			selectedQuantityType;
 
 - (void)viewDidLoad {
@@ -123,6 +125,7 @@
 	CFUUIDRef uuidObj = CFUUIDCreate(nil);
 	NSString *brandUUID = (NSString*)CFUUIDCreateString(nil, uuidObj);
 	NSString *weightUUID = (NSString*)CFUUIDCreateString(nil, uuidObj);
+	NSString *fiberUUID = (NSString*)CFUUIDCreateString(nil, uuidObj);
 	CFRelease(uuidObj);
 	
 	Yarn *yarn = [[Yarn alloc] init];
@@ -138,12 +141,22 @@
 		selectedWeight = [[Weight alloc] initWithName:weightUUID friendlyName:selectedWeight.friendlyName selected:YES];
 		[selectedWeight create];
 	}
+	
+	yarn.fiber = selectedFiber;
+	[fiberUUID release];
+	if([selectedFiber.name length] == 0) {
+		selectedFiber = [[Fiber alloc] initWithName:fiberUUID friendlyName:selectedFiber.friendlyName selected:YES];
+		[selectedFiber create];
+	}
 
 	[selectedBrand setIsselected:YES];
 	[selectedBrand update];
 	
 	[selectedWeight setIsselected:YES];
-	[selectedWeight update];	
+	[selectedWeight update];
+	
+	[selectedFiber setIsselected:YES];
+	[selectedFiber update];
 	
 	yarn.weight = selectedWeight;
 	[weightUUID release];
@@ -166,11 +179,14 @@
 	[weightNameLabel release];
 	[quantityLabel release];
 	[brandNameLabel release];
+	[fiberNameLabel release];
 	[yarnNameLabel release];
 	selectedWeight = nil;
 	[selectedWeight release];
 	selectedBrand = nil;
 	[selectedBrand release];
+	selectedFiber = nil;
+	[selectedFiber release];
 	[quantityTextField release];
 	[quantityTypeLabel release];
 	[yarnNameTextField release];

@@ -35,7 +35,7 @@
 	if (sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		//NSLog(@"Opened database: %@", databasePath);
 		sqlite3_stmt *insertStatement;
-		const char *sql = "INSERT INTO yarn (brandName, weightName, fiberName, name, description, quantity, quantity_type) VALUES (?,?,?,?,?,?)";
+		const char *sql = "INSERT INTO yarn (brandName, weightName, fiberName, name, description, quantity, quantity_type) VALUES (?,?,?,?,?,?,?)";
 		int prepared = sqlite3_prepare(database, sql, -1, &insertStatement, NULL);
 		if(SQLITE_OK == prepared) {
 			sqlite3_bind_text(insertStatement, 1, [[brand name] UTF8String], -1, SQLITE_TRANSIENT);

@@ -61,11 +61,11 @@
 		[alert release];
 		return;
 	}	
-	EditYarnViewController *editYarnViewController = [[EditYarnViewController alloc] initWithNibName:@"AddYarnView" bundle:nil];
-	editYarnViewController.selectedBrand = selectedBrand;
-	editYarnViewController.selectedWeight = selectedWeight;
-	[self.navigationController pushViewController:editYarnViewController animated:YES];
-	[editYarnViewController release];
+	SelectFiberViewController *selectFiberViewController = [[SelectFiberViewController alloc] initWithNibName:@"SelectFiberView" bundle:nil];
+	selectFiberViewController.selectedBrand = selectedBrand;
+	selectFiberViewController.selectedWeight = selectedWeight;
+	[self.navigationController pushViewController:selectFiberViewController animated:YES];
+	[selectFiberViewController release];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {

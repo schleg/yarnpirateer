@@ -24,13 +24,16 @@
 	IBOutlet UILabel *quantityTypeLabel;
 	IBOutlet UILabel *brandNameLabel;
 	IBOutlet UILabel *weightNameLabel;
+	IBOutlet UILabel *fiberNameLabel;
 	Weight *selectedWeight;
 	Brand *selectedBrand;
+	Fiber *selectedFiber;
 	NSString *selectedQuantityType;
 }
 
 @property (nonatomic, retain) Weight *selectedWeight;
 @property (nonatomic, retain) Brand *selectedBrand;
+@property (nonatomic, retain) Fiber *selectedFiber;
 @property (nonatomic, retain) NSString *selectedQuantityType;
 @property (nonatomic, retain) UILabel *selectedBrandLabel;
 @property (nonatomic, retain) UILabel *selectedWeightLabel;
@@ -42,6 +45,7 @@
 @property (nonatomic, retain) UILabel *quantityTypeLabel;
 @property (nonatomic, retain) UILabel *brandNameLabel;
 @property (nonatomic, retain) UILabel *weightNameLabel;
+@property (nonatomic, retain) UILabel *fiberNameLabel;
 
 - (IBAction)saveYarn:(id)sender;
 - (IBAction)chooseQuantityType:(id)sender;

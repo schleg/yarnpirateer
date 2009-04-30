@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Weight.h"
 #import "Brand.h"
-#import "EditYarnViewController.h";
+#import "SelectFiberViewController.h";
 
 @interface SelectWeightViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate> {
 	IBOutlet UIButton *selectWeightButton;
