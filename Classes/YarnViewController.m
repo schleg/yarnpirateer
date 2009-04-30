@@ -240,7 +240,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return 110.0f;
+	return 130.0f;
 }
 
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

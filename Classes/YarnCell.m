@@ -10,7 +10,7 @@
 
 @implementation YarnCell
 
-@synthesize cell, yarnLabel, brandLabel, fiberLabel, weightLabel;
+@synthesize cell, yarnLabel, brandLabel, fiberLabel, weightLabel, quantityLabel;
 
 + (YarnCell *)yarnCellWithYarn:(Yarn *)yarn nibName:(NSString *)name {
 	return [[[self alloc] initYarnCellWithYarn:yarn nibName:name] autorelease];
@@ -24,11 +24,32 @@
 		self.fiberLabel.text = @"Blue-Faced Leicester and Stuff";
 		self.weightLabel.text = yarn.weight.friendlyName;
 		self.brandLabel.text = yarn.brand.friendlyName;
+		
+		BOOL isFloat = abs(yarn.quantity) < yarn.quantity;
+		NSString* number = isFloat ? [NSString stringWithFormat:@"%.1f", yarn.quantity] : [NSString stringWithFormat:@"%d", (int)yarn.quantity];
+		
+		NSString* quantityType = [NSString stringWithFormat:@""];
+		BOOL usePlural = yarn.quantity == 0 || yarn.quantity > 1;
+		if([yarn.quantityType isEqualToString:@"yard"])
+		{
+			quantityType = usePlural ? @"Yards" : @"Yard";
+		}
+		else if([yarn.quantityType isEqualToString:@"skein"])
+		{
+			quantityType = usePlural ? @"Skeins" : @"Skein";
+		}
+		else if([yarn.quantityType isEqualToString:@"ball"])
+		{
+			quantityType = usePlural ? @"Balls" : @"Ball";
+		}
+
+		self.quantityLabel.text = [NSString stringWithFormat:@"%@ %@", number, quantityType];
 	}
 	return self;
 }
 
 - (void)dealloc {
+	[quantityLabel release];
 	[yarnLabel release];
 	[brandLabel release];
 	[fiberLabel release];

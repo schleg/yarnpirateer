@@ -105,8 +105,8 @@
 	if(textField.keyboardType == UIKeyboardTypeNumbersAndPunctuation) {
 		float quantity = (float)[[textField text] floatValue];
 		BOOL isFloat = abs(quantity) < quantity;
-		NSString* numberFormat = isFloat ? [NSString stringWithFormat:@"%.2f", (float)[[textField text] floatValue]] : [NSString stringWithFormat:@"%d", (int)[[textField text] integerValue]];
-		textField.text = [NSString stringWithFormat:numberFormat, quantity];
+		NSString* number = isFloat ? [NSString stringWithFormat:@"%.1f", (float)[[textField text] floatValue]] : [NSString stringWithFormat:@"%d", (int)[[textField text] integerValue]];
+		textField.text = number;
 		[self updateQuantityTypeLabelFrom:quantity];
 	}
 	return YES;

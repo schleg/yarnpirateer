@@ -49,7 +49,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="IBUIText">Fiber Name</string>
+								<string key="IBUIText">Quantity</string>
 								<object class="NSColor" key="IBUITextColor" id="777417197">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -67,7 +67,22 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="IBUIText">Weight Name</string>
+								<string key="IBUIText">Fiber Name</string>
+								<reference key="IBUITextColor" ref="777417197"/>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">1</int>
+								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+								<float key="IBUIMinimumFontSize">1.000000e+01</float>
+							</object>
+							<object class="IBUILabel" id="1036579205">
+								<reference key="NSNextResponder" ref="524752761"/>
+								<int key="NSvFlags">290</int>
+								<string key="NSFrame">{{20, 93}, {280, 21}}</string>
+								<reference key="NSSuperview" ref="524752761"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="IBUIText">Weight</string>
 								<reference key="IBUITextColor" ref="777417197"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -95,7 +110,7 @@
 								<float key="IBUIMinimumFontSize">1.000000e+01</float>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 110}</string>
+						<string key="NSFrameSize">{320, 130}</string>
 						<reference key="NSSuperview" ref="901114025"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -107,7 +122,7 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 110}</string>
+				<string key="NSFrameSize">{320, 130}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -131,27 +146,43 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">fiberLabel</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="375458865"/>
-					</object>
-					<int key="connectionID">22</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">weightLabel</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="975016258"/>
-					</object>
-					<int key="connectionID">23</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">yarnLabel</string>
 						<reference key="source" ref="841351856"/>
 						<reference key="destination" ref="817526839"/>
 					</object>
 					<int key="connectionID">25</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">weightLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="1036579205"/>
+					</object>
+					<int key="connectionID">30</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">fiberLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="975016258"/>
+					</object>
+					<int key="connectionID">31</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">brandLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="817526839"/>
+					</object>
+					<int key="connectionID">32</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">quantityLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="375458865"/>
+					</object>
+					<int key="connectionID">33</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -184,6 +215,7 @@
 							<reference ref="817526839"/>
 							<reference ref="375458865"/>
 							<reference ref="975016258"/>
+							<reference ref="1036579205"/>
 						</object>
 						<reference key="parent" ref="957960031"/>
 					</object>
@@ -202,6 +234,11 @@
 						<reference key="object" ref="817526839"/>
 						<reference key="parent" ref="901114025"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">29</int>
+						<reference key="object" ref="1036579205"/>
+						<reference key="parent" ref="901114025"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -215,6 +252,7 @@
 					<string>16.IBPluginDependency</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
+					<string>29.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -223,7 +261,8 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{662, 745}, {320, 110}}</string>
+					<string>{{662, 725}, {320, 130}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
@@ -247,7 +286,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">25</int>
+			<int key="maxID">33</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -262,6 +301,7 @@
 							<string>brandLabel</string>
 							<string>cell</string>
 							<string>fiberLabel</string>
+							<string>quantityLabel</string>
 							<string>weightLabel</string>
 							<string>yarnLabel</string>
 						</object>
@@ -269,6 +309,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UILabel</string>
 							<string>UITableViewCell</string>
+							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>

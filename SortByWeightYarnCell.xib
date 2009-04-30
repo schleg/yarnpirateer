@@ -49,7 +49,7 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="IBUIText">Yarn Name</string>
+								<string key="IBUIText">Quantity</string>
 								<object class="NSColor" key="IBUITextColor" id="532771370">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -67,7 +67,27 @@
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="IBUIText">Yarn</string>
+								<reference key="IBUITextColor" ref="532771370"/>
+								<nil key="IBUIHighlightedColor"/>
+								<int key="IBUIBaselineAdjustment">1</int>
+								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+								<float key="IBUIMinimumFontSize">1.000000e+01</float>
+							</object>
+							<object class="IBUILabel" id="66240781">
+								<reference key="NSNextResponder" ref="826308082"/>
+								<int key="NSvFlags">290</int>
+								<string key="NSFrame">{{20, 93}, {280, 21}}</string>
+								<reference key="NSSuperview" ref="826308082"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="IBUIText">Fiber Name</string>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">1.700000e+01</double>
+									<int key="NSfFlags">16</int>
+								</object>
 								<reference key="IBUITextColor" ref="532771370"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
@@ -95,7 +115,7 @@
 								<float key="IBUIMinimumFontSize">1.000000e+01</float>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 110}</string>
+						<string key="NSFrameSize">{320, 130}</string>
 						<reference key="NSSuperview" ref="610656410"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -107,7 +127,7 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 110}</string>
+				<string key="NSFrameSize">{320, 130}</string>
 				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -141,17 +161,25 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">yarnLabel</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="167249194"/>
+						<reference key="destination" ref="323013811"/>
 					</object>
-					<int key="connectionID">10</int>
+					<int key="connectionID">14</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">fiberLabel</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="323013811"/>
+						<reference key="destination" ref="66240781"/>
 					</object>
-					<int key="connectionID">12</int>
+					<int key="connectionID">15</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">quantityLabel</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="167249194"/>
+					</object>
+					<int key="connectionID">16</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -182,8 +210,9 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="167249194"/>
-							<reference ref="323013811"/>
 							<reference ref="957793737"/>
+							<reference ref="66240781"/>
+							<reference ref="323013811"/>
 						</object>
 						<reference key="parent" ref="957960031"/>
 					</object>
@@ -202,6 +231,11 @@
 						<reference key="object" ref="957793737"/>
 						<reference key="parent" ref="610656410"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">13</int>
+						<reference key="object" ref="66240781"/>
+						<reference key="parent" ref="610656410"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -210,6 +244,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>-1.CustomClassName</string>
 					<string>-2.CustomClassName</string>
+					<string>13.IBPluginDependency</string>
 					<string>2.IBEditorWindowLastContentRect</string>
 					<string>2.IBPluginDependency</string>
 					<string>3.IBPluginDependency</string>
@@ -220,7 +255,8 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>YarnCell</string>
 					<string>UIResponder</string>
-					<string>{{790, 691}, {320, 110}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>{{673, 671}, {320, 130}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -247,7 +283,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">12</int>
+			<int key="maxID">16</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -262,6 +298,7 @@
 							<string>brandLabel</string>
 							<string>cell</string>
 							<string>fiberLabel</string>
+							<string>quantityLabel</string>
 							<string>weightLabel</string>
 							<string>yarnLabel</string>
 						</object>
@@ -269,6 +306,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UILabel</string>
 							<string>UITableViewCell</string>
+							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
