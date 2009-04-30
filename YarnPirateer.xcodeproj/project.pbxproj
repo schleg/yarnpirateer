@@ -13,6 +13,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		2F7774A20FA96CF2009F4ADF /* FiberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7774A10FA96CF2009F4ADF /* FiberViewController.m */; };
+		2F7774A70FA96D79009F4ADF /* Fiber.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7774A60FA96D79009F4ADF /* Fiber.m */; };
 		870007270EED10A600671713 /* Weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 870007260EED10A600671713 /* Weight.m */; };
 		870007600EED11F300671713 /* Yarn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8700075F0EED11F300671713 /* Yarn.m */; };
 		870405690EF4F9D300E08EFE /* SelectWeightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870405680EF4F9D300E08EFE /* SelectWeightView.xib */; };
@@ -50,6 +52,10 @@
 		28A0AB4B0D9B1048005BE974 /* YarnPirateer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YarnPirateer_Prefix.pch; sourceTree = "<group>"; };
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F7774A00FA96CF2009F4ADF /* FiberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiberViewController.h; sourceTree = "<group>"; };
+		2F7774A10FA96CF2009F4ADF /* FiberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiberViewController.m; sourceTree = "<group>"; };
+		2F7774A50FA96D79009F4ADF /* Fiber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fiber.h; sourceTree = "<group>"; };
+		2F7774A60FA96D79009F4ADF /* Fiber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fiber.m; sourceTree = "<group>"; };
 		870007250EED10A600671713 /* Weight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weight.h; sourceTree = "<group>"; };
 		870007260EED10A600671713 /* Weight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weight.m; sourceTree = "<group>"; };
 		8700075E0EED11F300671713 /* Yarn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Yarn.h; sourceTree = "<group>"; };
@@ -109,6 +115,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2F7774A50FA96D79009F4ADF /* Fiber.h */,
+				2F7774A60FA96D79009F4ADF /* Fiber.m */,
+				2F7774A00FA96CF2009F4ADF /* FiberViewController.h */,
+				2F7774A10FA96CF2009F4ADF /* FiberViewController.m */,
 				87B6E7070F5B2C8000D0F1C4 /* WeightViewController.h */,
 				87B6E7080F5B2C8000D0F1C4 /* WeightViewController.m */,
 				87B6E6F50F5B2C2100D0F1C4 /* BrandViewController.h */,
@@ -304,6 +314,8 @@
 				87B6E6F70F5B2C2100D0F1C4 /* BrandViewController.m in Sources */,
 				87B6E7090F5B2C8000D0F1C4 /* WeightViewController.m in Sources */,
 				87B6E84F0F5CF67900D0F1C4 /* YarnDetailViewController.m in Sources */,
+				2F7774A20FA96CF2009F4ADF /* FiberViewController.m in Sources */,
+				2F7774A70FA96D79009F4ADF /* Fiber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

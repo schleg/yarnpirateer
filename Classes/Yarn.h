@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Brand.h"
 #import "Weight.h"
+#import "Fiber.h"
 
 @interface Yarn : NSObject {
 	Brand *brand;
 	Weight *weight;
+	Fiber *fiber;
 	NSString *name;
 	NSString *description;
 	float quantity;
@@ -23,6 +25,7 @@
 
 @property (nonatomic, retain) Brand *brand;
 @property (nonatomic, retain) Weight *weight;
+@property (nonatomic, retain) Fiber *fiber;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *description;
 @property (nonatomic, readwrite) float quantity;
@@ -38,5 +41,6 @@
 + (NSMutableArray *)all;
 + (NSMutableArray *)byBrand:(NSString *)_name;
 + (NSMutableArray *)byWeight:(NSString *)_name;
++ (NSMutableArray *)byFiber:(NSString *)_name;
 
 @end

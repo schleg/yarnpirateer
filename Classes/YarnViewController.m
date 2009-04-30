@@ -23,7 +23,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 		NSMutableArray *allYarns = [Yarn all];
 		for(int i=0; i<[allYarns count]; i++) {
 			Yarn *yarn = [allYarns objectAtIndex:i];
-			if (YES == [yarn.brand isselected] || YES == [yarn.weight isselected]) {
+			if (YES == [yarn.brand isselected] || YES == [yarn.weight isselected] || YES == [yarn.fiber isselected]) {
 				[self.yarns addObject:yarn];
 			}
 		}
@@ -175,6 +175,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
 		return [[Weight all] count];
 	} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+		return [[Fiber all] count];
 	}
 	return [self.yarns count];
 }
@@ -185,6 +186,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 	} else if (yarnCellNibName == @"SortByWeightYarnCell") {
 		return [[[Weight all] objectAtIndex:section] friendlyName];
 	} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+		return [[[Fiber all] objectAtIndex:section] friendlyName];
 	}		
 	return @"";
 }
@@ -204,6 +206,10 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 				[yarnsBySection addObject:yarn];
 			}
 		} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+			Fiber *fiber = [[Fiber all] objectAtIndex:section];
+			if([[fiber name] isEqualToString:[[yarn fiber] name]]) {
+				[yarnsBySection addObject:yarn];
+			}
 		}
 	}
 	return [yarnsBySection count];
@@ -224,6 +230,10 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 				[yarnsBySection addObject:yarn];
 			}
 		} else if (yarnCellNibName == @"SortByFiberYarnCell") {
+			Fiber *fiber = [[Fiber all] objectAtIndex:indexPath.section];
+			if([[fiber name] isEqualToString:[[yarn fiber] name]]) {
+				[yarnsBySection addObject:yarn];
+			}
 		}
 	}
 	static NSString *cellId = @"yarn-cell";

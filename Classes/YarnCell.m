@@ -21,7 +21,7 @@
 	if(nil != self) {
 		[[NSBundle mainBundle] loadNibNamed:name owner:self options:nil];
 		self.yarnLabel.text = yarn.name;
-		self.fiberLabel.text = @"Blue-Faced Leicester and Stuff";
+		self.fiberLabel.text = yarn.fiber.friendlyName;
 		self.weightLabel.text = yarn.weight.friendlyName;
 		self.brandLabel.text = yarn.brand.friendlyName;
 		
