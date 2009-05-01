@@ -16,6 +16,7 @@
 @interface EditYarnViewController : UIViewController<UITextFieldDelegate, UIActionSheetDelegate> {
 	IBOutlet UILabel *selectedBrandLabel;
 	IBOutlet UILabel *selectedWeightLabel;
+	IBOutlet UILabel *selectedFiberLabel;
 	IBOutlet UIButton *saveYarnButton;
 	IBOutlet UITextField *yarnNameTextField;
 	IBOutlet UITextField *quantityTextField;
@@ -37,6 +38,7 @@
 @property (nonatomic, retain) NSString *selectedQuantityType;
 @property (nonatomic, retain) UILabel *selectedBrandLabel;
 @property (nonatomic, retain) UILabel *selectedWeightLabel;
+@property (nonatomic, retain) UILabel *selectedFiberLabel;
 @property (nonatomic, retain) UIButton *saveYarnButton;
 @property (nonatomic, retain) UITextField *yarnNameTextField;
 @property (nonatomic, retain) UITextField *quantityTextField;

@@ -15,6 +15,7 @@
 			selectedFiber,
 			selectedBrandLabel, 
 			selectedWeightLabel, 
+			selectedFiberLabel,
 			saveYarnButton, 
 			yarnNameTextField, 
 			quantityTextField, 
@@ -35,6 +36,7 @@
 	
 	selectedBrandLabel.text = selectedBrand.friendlyName;
 	selectedWeightLabel.text = selectedWeight.friendlyName;
+	selectedFiberLabel.text = selectedFiber.friendlyName;
 	
 	yarnNameTextField.returnKeyType = UIReturnKeyDone; 
 	yarnNameTextField.delegate = self;
@@ -53,6 +55,7 @@
 	quantityLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	brandNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	weightNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
+	fiberNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 }
 
 - (void)updateQuantityTypeLabelFrom:(float)quantity {
@@ -193,6 +196,7 @@
 	[saveYarnButton release];
 	[selectedBrandLabel release];
 	[selectedWeightLabel release];
+	[selectedFiberLabel release];
 	[selectedQuantityType release];
     [super dealloc];
 }
