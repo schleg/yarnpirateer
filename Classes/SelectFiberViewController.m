@@ -36,7 +36,7 @@
 	float uiFontSize = 18.0f;
 	
 	fiberNameTextField.font = [UIFont fontWithName:fiberNameTextField.font.fontName size:uiFontSize];
-	selectFiberButton.font = [UIFont boldSystemFontOfSize:uiFontSize];
+	selectFiberButton.titleLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	fiberNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 }
 

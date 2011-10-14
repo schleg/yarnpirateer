@@ -84,7 +84,7 @@
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:cellId] autorelease];
     }
 	Weight *weight = [self.weights objectAtIndex:indexPath.row];
-	cell.text = [NSString stringWithFormat:@"%@ (%d)", weight.friendlyName, [[Yarn byWeight:weight.name] count]];
+	cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d)", weight.friendlyName, [[Yarn byWeight:weight.name] count]];
 	
 	if(YES == [weight isselected]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -196,7 +196,7 @@
 					Weight *selectedWeight = [self.weights objectAtIndex:_lastClickedIndexPath.row];
 					NSMutableArray *yarnsForWeight = [Yarn byWeight:selectedWeight.name];
 					for(int i=0;i<[yarnsForWeight count];i++) {
-						[[yarnsForWeight objectAtIndex:i] delete];
+						[[yarnsForWeight objectAtIndex:i] destroy];
 					}
 					[selectedWeight delete];
 					[self.weights removeObjectAtIndex:_lastClickedIndexPath.row];

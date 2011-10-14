@@ -84,7 +84,7 @@
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:cellId] autorelease];
     }
 	Brand *brand = [self.brands objectAtIndex:indexPath.row];
-	cell.text = [NSString stringWithFormat:@"%@ (%d)", brand.friendlyName, [[Yarn byBrand:brand.name] count]];
+	cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d)", brand.friendlyName, [[Yarn byBrand:brand.name] count]];
 
 	if(YES == [brand isselected]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -116,7 +116,7 @@
 			[alert release];
 		} else {
 			Brand *selectedBrand = [self.brands objectAtIndex:_lastClickedIndexPath.row];
-			[selectedBrand delete];
+			[selectedBrand destroy];
 			[self.brands removeObjectAtIndex:_lastClickedIndexPath.row];
 			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:_lastClickedIndexPath] withRowAnimation:YES];
 		}
@@ -172,9 +172,9 @@
 					Brand *selectedBrand = [self.brands objectAtIndex:_lastClickedIndexPath.row];
 					NSMutableArray *yarnsForBrand = [Yarn byBrand:selectedBrand.name];
 					for(int i=0;i<[yarnsForBrand count];i++) {
-						[[yarnsForBrand objectAtIndex:i] delete];
+						[[yarnsForBrand objectAtIndex:i] destroy];
 					}
-					[selectedBrand delete];
+					[selectedBrand destroy];
 					[self.brands removeObjectAtIndex:_lastClickedIndexPath.row];
 					[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:_lastClickedIndexPath] withRowAnimation:YES];
 				}				

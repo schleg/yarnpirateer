@@ -84,7 +84,7 @@
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:cellId] autorelease];
     }
 	Fiber *fiber = [self.fibers objectAtIndex:indexPath.row];
-	cell.text = [NSString stringWithFormat:@"%@ (%d)", fiber.friendlyName, [[Yarn byFiber:fiber.name] count]];
+	cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d)", fiber.friendlyName, [[Yarn byFiber:fiber.name] count]];
 	
 	if(YES == [fiber isselected]) {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -196,7 +196,7 @@
 					Fiber *selectedFiber = [self.fibers objectAtIndex:_lastClickedIndexPath.row];
 					NSMutableArray *yarnsForFiber = [Yarn byFiber:selectedFiber.name];
 					for(int i=0;i<[yarnsForFiber count];i++) {
-						[[yarnsForFiber objectAtIndex:i] delete];
+						[[yarnsForFiber objectAtIndex:i] destroy];
 					}
 					[selectedFiber delete];
 					[self.fibers removeObjectAtIndex:_lastClickedIndexPath.row];

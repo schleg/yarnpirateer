@@ -36,7 +36,7 @@
 	float uiFontSize = 18.0f;
 	
 	weightNameTextField.font = [UIFont fontWithName:weightNameTextField.font.fontName size:uiFontSize];
-	selectWeightButton.font = [UIFont boldSystemFontOfSize:uiFontSize];
+	selectWeightButton.titleLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	weightNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 }
 

@@ -256,7 +256,7 @@ NSString *yarnCellNibName = @"SortByBrandYarnCell";
 - (void)tableView:(UITableView *)_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView beginUpdates];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-		[[self.yarns objectAtIndex:indexPath.row] delete];
+		[[self.yarns objectAtIndex:indexPath.row] destroy];
         [self.yarns removeObjectAtIndex:indexPath.row];
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
     }

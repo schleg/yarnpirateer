@@ -152,7 +152,7 @@
 	return retval;
 }
 
-- (BOOL)delete {
+- (BOOL)destroy {
 	BOOL retval = [_slh deleteUsingSQLTemplate:"DELETE FROM brand WHERE name=?" andValues:[NSArray arrayWithObjects:name,nil]];
 	return retval;
 }

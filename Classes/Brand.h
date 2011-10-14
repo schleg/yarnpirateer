@@ -26,7 +26,7 @@
 
 - (BOOL)create;
 - (BOOL)update;
-- (BOOL)delete;
+- (BOOL)destroy;
 - (void)read;
 - (BOOL)isselected;
 - (void)setIsselected:(BOOL)_selected;

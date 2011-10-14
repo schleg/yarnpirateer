@@ -46,7 +46,7 @@
 	
 	float uiFontSize = 18.0f;
 	
-	saveYarnButton.font = [UIFont boldSystemFontOfSize:uiFontSize];
+	saveYarnButton.titleLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	
 	yarnNameTextField.font = [UIFont fontWithName:[yarnNameTextField.font familyName] size:uiFontSize];	
 	quantityTextField.font = [UIFont fontWithName:[quantityTextField.font familyName] size:uiFontSize];

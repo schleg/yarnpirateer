@@ -32,7 +32,7 @@
 	brandNameTextField.delegate = self;
 	float uiFontSize = 18.0f;
 	brandNameTextField.font = [UIFont fontWithName:brandNameTextField.font.fontName size:uiFontSize];
-	selectBrandButton.font = [UIFont boldSystemFontOfSize:uiFontSize];
+	selectBrandButton.titleLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 	brandNameLabel.font = [UIFont boldSystemFontOfSize:uiFontSize];
 }
 
